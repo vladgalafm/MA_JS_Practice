@@ -10,5 +10,6 @@ do {
     a = 'ви не вибрали число';
     break;
   }
-} while (a <= 100 && a !== null);
+} while (isNaN(+a) || (a <= 100 && a !== null));
+
 console.log('Task 1\n\tВведене число: ' + a);
