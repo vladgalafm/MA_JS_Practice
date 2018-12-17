@@ -12,14 +12,15 @@ function primeNumbers(num) {
   var arr = [];
   for (var i = 2; i <= num; i++) {
     var divCount = 0;
-    for (var j = 1; j <= i; j++) {
-      if (j !== 1 && j !== i && i % j === 0) {
+    for (var j = 2; j < i; j++) {
+      if (i % j === 0) {
         divCount++;
+        break;
       }
     }
     if (divCount === 0) {
       arr.push(i);
     }
   }
-  console.log('Task 2\n\tНатуральні числа в проміжку від 2 до ' + num + ': ' + arr);
+  console.log('Task 2\n\tПрості числа в проміжку від 2 до ' + num + ': ' + arr);
 }

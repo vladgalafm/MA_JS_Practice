@@ -7,10 +7,9 @@ var line = prompt('[Task 7] Введіть якусь строку', 'тороб
 stringReverse(line);
 
 function stringReverse(str) {
-  var arr = str.split('');
-  var reverse = [];
-  for (var i = arr.length - 1; i >= 0; i--) {
-    reverse.push(arr[i]);
+  var newLine = '';
+  for (var i = str.length - 1; i >= 0; i--) {
+    newLine += str[i];
   }
-  console.log('Task 7\n\tВведена строка задом наперед: ' + reverse.join(''));
+  console.log('Task 7\n\tВведена строка задом наперед: ' + newLine);
 }

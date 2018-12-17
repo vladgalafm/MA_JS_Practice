@@ -33,5 +33,5 @@ function reverseFibonacci(num) {
 }
 
 function isNatural(num) {
-  return (Number.isInteger(num) && num >= 0) ? true : false;
+  return (Number.isInteger(num) && num >= 0);
 }
