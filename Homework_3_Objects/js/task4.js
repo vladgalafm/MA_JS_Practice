@@ -7,6 +7,6 @@ console.log('Task 4\n\tНовый массив: ' + arrayElementsRandomOrder(num
 
 function arrayElementsRandomOrder(str) {
   return str.sort(function(a, b) {
-    return Math.random() * 2 - 1;
+    return Math.random() - 0.5;
   });
 }
