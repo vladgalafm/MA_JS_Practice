@@ -18,7 +18,6 @@ function randomFunctionTests(n) {
     var arrayCopy = array.slice();
     iterationArr.push(arrayElementsRandomOrder(arrayCopy));
   }
-  console.log(iterationArr);
   var statsArr = [];
   for (i = 0; i < array.length; i++) {
     statsArr[i] = [];
