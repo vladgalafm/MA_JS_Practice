@@ -6,8 +6,8 @@ console.log('Количество итераций: ', n);
 
 randomFunctionTests(n);
 
-function arrayElementsRandomOrder(str) {
-  return str.sort(function(a, b) {
+function arrayElementsRandomOrder(arr) {
+  return arr.sort(function() {
     return Math.random() - 0.5;
   });
 }

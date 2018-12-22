@@ -5,8 +5,8 @@ var numbers = prompt('[Task 4] Введите через пробел неско
 
 console.log('Task 4\n\tНовый массив: ' + arrayElementsRandomOrder(numbers.split(' ')));
 
-function arrayElementsRandomOrder(str) {
-  return str.sort(function(a, b) {
+function arrayElementsRandomOrder(arr) {
+  return arr.sort(function() {
     return Math.random() - 0.5;
   });
 }
