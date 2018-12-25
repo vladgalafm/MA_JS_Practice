@@ -5,12 +5,14 @@
       попыток, выводилось сообщение с предупреждением.
 */
 
+console.log('Task 2');
+
 var truePassword = 'admin';
 
 var c1 = comparePassword(truePassword);
 
 do {
-  var password = prompt('Введите пароль', '');
+  var password = prompt('Введите пароль');
   var call = c1(password);
 } while (!call);
 
@@ -21,13 +23,13 @@ function comparePassword(truePass) {
     count++;
 
     if (truePass === pass) {
-      console.log('Пароль принят');
+      console.log('\tПароль принят');
       return true;
     } else if (count > 5) {
-      console.log('Это уже ' + count + '-я неверная попытка!');
+      console.log('\tЭто уже ' + count + '-я неверная попытка!');
       return false;
     } else {
-      console.log('Пароль неверный');
+      console.log('\tПароль неверный');
       return false;
     }
   }

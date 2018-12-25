@@ -2,6 +2,8 @@
     multi3(x), multi4(x), которые возвращают, соответственно, 3*x, 4*x.
 */
 
+console.log('Task 3');
+
 multiA(365)(123);
 
 var multi3 = multiA(3);
@@ -14,6 +16,6 @@ multi4(25);
 
 function multiA(a) {
   return function(b) {
-    console.log('Результат умножения ' + a + ' на ' + b + ': ' + a * b);
+    console.log('\tРезультат умножения ' + a + ' на ' + b + ': ' + a * b);
   }
 }
