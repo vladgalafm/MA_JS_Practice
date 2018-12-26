@@ -32,45 +32,66 @@ var form = {
 };
 
 function validation(formObject) {
-  var checkingYourName = checkName();
-  var checkingYourMail = checkMail();
+  function sideWhiteSpacesOff(value) { // избавляемся в field_name.value от пробелов по бокам
+    return value.trim();
+  }
 
-  function checkName() {
-    if (formObject.name.validationRules.required && formObject.name.value.length === 0) {
-      formObject.name.errorMessage = '\tЭто обязательное поле';
-      return false;
-    } else if (formObject.name.value.length < formObject.name.validationRules.minLength) {
-      formObject.name.errorMessage = '\tСлишком короткое имя';
-      return false;
-    } else if (formObject.name.value.length > formObject.name.validationRules.maxLength) {
-      formObject.name.errorMessage = '\tСлишком длинное имя';
+  function checkRequired(field) {
+    if (field.value.length === 0) {
+      field.errorMessage = 'Это обязательное поле, заполните его';
       return false;
     } else {
       return true;
     }
   }
 
-  function checkMail() {
-    if (formObject.email.validationRules.required && formObject.email.value.length === 0) {
-      formObject.email.errorMessage = '\tЭто обязательное поле';
-      return false;
-    } else if (formObject.email.validationRules.email && formObject.email.value.split('').indexOf('@') === -1) {
-      formObject.email.errorMessage = '\tВведен не email';
+  function checkMinLength(field) {
+    if (field.value.length < field.validationRules.minLength) {
+      field.errorMessage = 'Поле слишком короткое, минимальнаяя длина: ' + field.validationRules.minLength;
       return false;
     } else {
       return true;
     }
   }
 
-  if (formObject.name.errorMessage.length > 0) {
-    console.log(formObject.name.errorMessage);
-  }
-  if (formObject.email.errorMessage.length > 0) {
-    console.log(formObject.email.errorMessage);
+  function checkMaxLength(field) {
+    if (field.value.length > field.validationRules.maxLength) {
+      field.errorMessage = 'Поле слишком длинное, максимальная длина: ' + field.validationRules.maxLength;
+      return false;
+    } else {
+      return true;
+    }
   }
 
-  return (checkingYourName && checkingYourMail);
+  function checkIsEmail(field) {
+    if (field.value.split('').indexOf('@') === -1) {
+      field.errorMessage = 'Введен не email';
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  var checkResults = [];
+
+  for (var key in formObject) {
+    formObject[key].value = sideWhiteSpacesOff(formObject[key].value);
+
+    if (formObject[key].validationRules.required) {
+      checkResults.push(checkRequired(formObject[key]));
+    }
+    if (formObject[key].validationRules.minLength) {
+      checkResults.push(checkMinLength(formObject[key]));
+    }
+    if (formObject[key].validationRules.maxLength) {
+      checkResults.push(checkMaxLength(formObject[key]));
+    }
+    if (formObject[key].validationRules.email) {
+      checkResults.push(checkIsEmail(formObject[key]));
+    }
+  }
+
+  return (checkResults.indexOf(false) === -1);
 }
 
-var c1 = validation(form);
-console.log('\tВалидность введенных в форму данных:', c1);
+console.log('\tПоля формы заполнены корректно?', validation(form));
