@@ -12,9 +12,16 @@ var truePassword = 'admin';
 var c1 = comparePassword(truePassword);
 
 do {
-  var password = prompt('Введите пароль');
-  var call = c1(password);
-} while (!call);
+  var password = prompt('[Task 2] Введите правильный пароль');
+
+  switch (password) {
+    case null:
+      alert('Вы закончили работу с Task 2');
+      break;
+    default:
+      var call = c1(password);
+  }
+} while (password !== null && !call);
 
 function comparePassword(truePass) {
   var count = 0;
