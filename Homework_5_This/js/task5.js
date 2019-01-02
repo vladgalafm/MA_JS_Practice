@@ -5,6 +5,8 @@
     с помощью bind.
 */
 
+console.log('Task 5');
+
 function ask(question, answer, ok, fail) {
   var result = prompt(question, '');
   if (result === answer) {
@@ -24,9 +26,23 @@ var user = {
   loginFail: function() {
     console.log(this.login + ' - login failed');
   },
+  /*
+  Variant with Bind:
 
   checkPassword: function() {
-    ask("Your password?", this.password, this.loginOk, this.loginFail);
+    ask("Your password?", this.password, this.loginOk.bind(this), this.loginFail.bind(this));
+  }
+  */
+  checkPassword: function() {
+    var self = this;
+    ask("Your password?", this.password,
+      function() {
+        self.loginOk();
+      },
+      function() {
+        self.loginFail();
+      }
+    );
   }
 };
 

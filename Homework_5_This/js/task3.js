@@ -2,8 +2,10 @@
     Create several different objects from constructor 'Car'.
 */
 
+console.log('Task 3');
+
 var audi = new Car('audi', 2008, 'silver');
-var kopeyka = new Car('lada', 1974, 'red');
+var kopeyka = new Car('ваз', 1974, 'red');
 
 console.log(audi.model);
 console.log(kopeyka.year);

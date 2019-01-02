@@ -3,15 +3,11 @@
     multiplied it to 3. Use bind || call || apply in this cases.
 */
 
+console.log('Task 2');
+
 var obj = {
   number: 8,
 };
-
-var obj2 = {
-  number: 12,
-};
-
-//obj.getDoubled = getDoubled;
 
 function getDoubled() {
   return 2 * this.number;
@@ -21,5 +17,5 @@ function getDoubledTripled() {
   return 3 * getDoubled.call(this);
 }
 
-console.log(getDoubled.call(obj));
-console.log(getDoubledTripled.call(obj2));
+console.log('getDoubled() result: ', getDoubled.call(obj));
+console.log('getDoubledTripled() result: ', getDoubledTripled.call(obj));

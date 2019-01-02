@@ -5,13 +5,15 @@
     * have 'addCitizen' method that increments 'population' +1
 */
 
-var cityN = new City('CityN', 10000, 'CountryT');
+console.log('Task 4');
 
-console.log(cityN.getPopulation());
-for (var i = 1; i < 200; i++) {
+var cityN = new City('City N', 1e6, 'Country T');
+
+console.log('City population: ', cityN.getPopulation());
+for (var i = 1; i < 2e4; i++) {
   cityN.addCitizen();
 }
-console.log(cityN.getPopulation());
+console.log('City population: ', cityN.getPopulation());
 
 function City(name, population, country) {
   this.name = name;
