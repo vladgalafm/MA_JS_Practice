@@ -7,3 +7,5 @@
 [Homework 3. Objects](https://vladgalafm.github.io/MA_JS_Practice/Homework_3_Objects/)
 
 [Homework 4. Closures](https://vladgalafm.github.io/MA_JS_Practice/Homework_4_Closures/)
+
+[Homework 5. This](https://vladgalafm.github.io/MA_JS_Practice/Homework_5_This/)
