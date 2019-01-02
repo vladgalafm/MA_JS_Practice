@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task 6</title>
+</head>
+<body>
+<button onclick="replaceElementBy(document.getElementById('block1'), document.getElementById('block2'))">Click here to replace elements</button>
+<div id="block1">
+  <ol>
+    <li>First</li>
+    <li>Second</li>
+  </ol>
+</div>
+<div id="another">Some text</div>
+<div id="block2">
+  <ul>
+    <li style="color: red">Red</li>
+    <li style="color: blue">Blue</li>
+  </ul>
+</div>
+<script>
+  function replaceElementBy(blockCurrent, blockToReplace) {
+    var parent = document.body;
+    var blockCurrentClone = blockCurrent.cloneNode(true);
+    parent.insertBefore(blockCurrentClone, blockToReplace);
+    var blockToReplaceClone = blockToReplace.cloneNode(true);
+    parent.insertBefore(blockToReplaceClone, blockCurrent);
+    parent.removeChild(blockCurrent);
+    parent.removeChild(blockToReplace);
+    console.log('Элементы успешно поменяны местами!');
+  }
+</script>
+</body>
+</html>

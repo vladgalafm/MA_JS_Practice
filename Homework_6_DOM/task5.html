@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task 5</title>
+</head>
+<body>
+<button onclick="addChildrenTo(elem, 4, 'p')">Click here to add new elements</button>
+<div id="block"></div>
+<script>
+  var elem = document.getElementById('block');
+  function addChildrenTo(block, count, type) {
+    for (var i = 0; i < count; i++) {
+      var child = document.createElement(type);
+      child.innerHTML = 'Element #' + (i + 1);
+      block.appendChild(child);
+    }
+    console.log('You\'ve added ' + count + ' new elements');
+  }
+</script>
+</body>
+</html>

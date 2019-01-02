@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task 3</title>
+  <style>
+    span {
+      padding: 16px;
+      background-color: #dddddd;
+    }
+  </style>
+</head>
+<body>
+<button onclick="createSpanInBlockById('someID')">Click here to add new span element</button>
+<div id="someID">
+  <p>Something in not span tag</p>
+</div>
+<script>
+  function createSpanInBlockById(blockID) {
+    var block = document.getElementById(blockID);
+    var span = block.getElementsByTagName('span');
+    if (span.length === 0) {
+      var newSpan = document.createElement('span');
+      newSpan.innerHTML = 'You\'ve just created new span element!';
+      block.appendChild(newSpan);
+    } else {
+      console.log('There\'s already span element!');
+    }
+  }
+</script>
+</body>
+</html>

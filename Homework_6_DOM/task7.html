@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task 7</title>
+</head>
+<body>
+<button id="button" onclick="colorText(elem)">Click here to color text</button>
+<p id="holidays">Merry Christmas! And Happy New Year!</p>
+<script>
+  var elem = document.getElementById('holidays');
+  var colors = ['#ff0000', '#ffdd00', '#00ff00', '#0000ff'];
+
+  function randomColor(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+  }
+
+  function colorText(textBlock) {
+    var string = textBlock.innerHTML;
+    var newString = '';
+
+    for (var i = 0; i < string.length; i++) {
+      if (string[i] === ' ') {
+        newString += string[i];
+      } else {
+        newString += '<span>' + string[i] + '</span>';
+      }
+    }
+
+    textBlock.innerHTML = newString;
+
+    var spanCollection = textBlock.getElementsByTagName('span');
+    var previousColor = '';
+
+    for (i = 0; i < spanCollection.length; i++) {
+      do {
+        spanCollection[i].style.color = randomColor(colors);
+      } while (spanCollection[i].style.color === previousColor);
+      previousColor = spanCollection[i].style.color;
+    }
+
+    document.getElementById('button').disabled = true;
+  }
+</script>
+</body>
+</html>

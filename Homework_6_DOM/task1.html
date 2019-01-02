@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Task 1</title>
+  <meta charset=utf-8 />
+</head>
+<body>
+<p>
+  <a id="w3r" type="text/html" hreflang="en-us" rel="nofollow" target="_self" href="http://www.w3resource.com/">w3resource</a>
+</p>
+<button onclick="getAttributes()">Click here to get attributes value</button>
+<script>
+  function getAttributes() {
+    var link = document.getElementsByTagName('a');
+    for (var i = 0; i < link.length; i++) {
+      console.log('Link #' + (i + 1) + ' attribute values:');
+      console.log('\thref: ' + link[i].getAttribute('href'));
+      console.log('\threflang: ' + link[i].getAttribute('hreflang'));
+      console.log('\trel: ' + link[i].getAttribute('rel'));
+      console.log('\ttarget: ' + link[i].getAttribute('target'));
+      console.log('\ttype: ' + link[i].getAttribute('type'));
+    }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task 4</title>
+</head>
+<body>
+<p style="color: red">First</p>
+<p style="color: blue">Second</p>
+<p style="color: green">Third</p>
+<button onclick="createCloneNode(elem)">Click here to clone first element to the end</button>
+<script>
+  var elem = document.body.children[0];
+  function createCloneNode(block) {
+    var clone = block.cloneNode(true);
+    document.body.appendChild(clone);
+  }
+</script>
+</body>
+</html>
