@@ -49,7 +49,10 @@ var slider = function() {
     },
 
     addSlide: function(image, alt, n) {
-      if (numberIsOk(n)) {
+      if (numberIsOk(n) || (n === slides.length + 1)) {
+        if (this.currentSlide >= n && slides.length > 0) {
+          ++this.currentSlide;
+        }
         slides.splice(n - 1, 0, {image: image, alt: alt});
         console.log('Новый слайд успешно добавлен');
         return slides[n - 1];
@@ -60,7 +63,7 @@ var slider = function() {
 
     deleteSlide: function(n) {
       if (numberIsOk(n)) {
-        if (this.currentSlide >= n) {
+        if (this.currentSlide >= n && this.currentSlide !== 1) {
           --this.currentSlide;
         }
         console.log('Слайд успешно удален');
@@ -71,8 +74,16 @@ var slider = function() {
     },
 
     currentSlideInformation: function () {
-      console.log('Текущий слайд:\n\tНомер: ' + this.currentSlide + '\n\timage: ' + slides[this.currentSlide - 1].image +
-        '\n\talt: ' + slides[this.currentSlide - 1].alt);
+      if (slides.length > 0) {
+        console.log('Текущий слайд:\n\tНомер: '
+          + this.currentSlide
+          + '\n\timage: '
+          + slides[this.currentSlide - 1].image
+          + '\n\talt: '
+          + slides[this.currentSlide - 1].alt);
+      } else {
+        console.log('Ошибка: Слайды отсутствуют, получить информацию невозможно');
+      }
     },
 
     getSlidesArray: function() {
@@ -82,9 +93,15 @@ var slider = function() {
 }();
 
 do {
-  var a = prompt('[Task 6] Выберите действие:\n1 - Переключить слайдер на следующий слайд\n2 - Переключить слайдер на' +
-    ' предыдущий слайд\n3 - Переключить слайдер на слайд №\n4 - Добавить новый слайд\n5 - Удалить слайд\n6 - ' +
-    'Получить информацию о текущем слайде\n7 - Получить информацию о всех слайдах\nОтмена - Закончить работу со слайдером');
+  var a = prompt('[Task 6] Выберите действие:\n' +
+    '1 - Переключить слайдер на следующий слайд\n' +
+    '2 - Переключить слайдер на предыдущий слайд\n' +
+    '3 - Переключить слайдер на слайд №\n' +
+    '4 - Добавить новый слайд\n' +
+    '5 - Удалить слайд\n' +
+    '6 - Получить информацию о текущем слайде\n' +
+    '7 - Получить информацию о всех слайдах\n' +
+    'Отмена - Закончить работу со слайдером');
 
   switch (a) {
     case '1':
@@ -96,12 +113,12 @@ do {
       console.log('Вы переключились на слайд №' + slider.currentSlide);
       break;
     case '3':
-      a = +prompt('3: Введите номер слайда, на который желаете переключиться', '1');
+      a = +prompt('Введите номер слайда, на который желаете переключиться');
       slider.toSlideNumber(a);
       break;
     case '4':
-      a = prompt('Введите через пробел \'image\' и \'alt\' нового слайда, а также номер позиции, на которую вы этот ' +
-        'слайд желаете вставить', 'kitten.jpg Kitten 2');
+      a = prompt('Введите через пробел \'image\' и \'alt\' нового слайда, ' +
+        'а также номер позиции, на которую вы этот слайд желаете вставить', 'kitten.jpg Kitten 2');
       a = a.split(' ');
       slider.addSlide(a[0], a[1], +a[2]);
       break;
