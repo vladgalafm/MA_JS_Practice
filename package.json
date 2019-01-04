@@ -1,0 +1,29 @@
+{
+  "name": "16task_js_practice",
+  "version": "1.0.0",
+  "description": "[Homework 1. Conditions](https://vladgalafm.github.io/MA_JS_Practice/Homework_1_Conditions/)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vladgalafm/MA_JS_Practice.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vladgalafm/MA_JS_Practice/issues"
+  },
+  "homepage": "https://github.com/vladgalafm/MA_JS_Practice#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-watch": "^5.0.1",
+    "node-sass": "^4.11.0"
+  }
+}
