@@ -9,12 +9,14 @@
 <div id="block"></div>
 <script>
   var elem = document.getElementById('block');
+
   function addChildrenTo(block, count, type) {
     for (var i = 0; i < count; i++) {
       var child = document.createElement(type);
       child.innerHTML = 'Element #' + (i + 1);
       block.appendChild(child);
     }
+
     console.log('You\'ve added ' + count + ' new elements');
   }
 </script>

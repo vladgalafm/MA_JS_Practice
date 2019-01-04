@@ -11,6 +11,7 @@
 <button onclick="createCloneNode(elem)">Click here to clone first element to the end</button>
 <script>
   var elem = document.body.children[0];
+
   function createCloneNode(block) {
     var clone = block.cloneNode(true);
     document.body.appendChild(clone);

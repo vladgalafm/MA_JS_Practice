@@ -12,6 +12,7 @@
 <script>
   function getAttributes() {
     var link = document.getElementsByTagName('a');
+
     for (var i = 0; i < link.length; i++) {
       console.log('Link #' + (i + 1) + ' attribute values:');
       console.log('\thref: ' + link[i].getAttribute('href'));

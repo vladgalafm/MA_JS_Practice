@@ -22,12 +22,16 @@
 <script>
   function replaceElementBy(blockCurrent, blockToReplace) {
     var parent = document.body;
+
     var blockCurrentClone = blockCurrent.cloneNode(true);
     parent.insertBefore(blockCurrentClone, blockToReplace);
+
     var blockToReplaceClone = blockToReplace.cloneNode(true);
     parent.insertBefore(blockToReplaceClone, blockCurrent);
+
     parent.removeChild(blockCurrent);
     parent.removeChild(blockToReplace);
+
     console.log('Элементы успешно поменяны местами!');
   }
 </script>

@@ -19,6 +19,7 @@
   function createSpanInBlockById(blockID) {
     var block = document.getElementById(blockID);
     var span = block.getElementsByTagName('span');
+
     if (span.length === 0) {
       var newSpan = document.createElement('span');
       newSpan.innerHTML = 'You\'ve just created new span element!';
