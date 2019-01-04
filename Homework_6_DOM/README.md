@@ -1,20 +1,7 @@
 # MA_JS_Practice_Homework_6
 
 ## Task 1
-Here is a sample html file with a submit button. Write a JavaScript  function to get the value of the href, hreflang, rel, target, and type  attributes of the specified link.
-```<!DOCTYPE html>
-<html lang="en">
-<head>
-   <title>Title</title>
-   <meta charset=utf-8 />
-</head>
-<body>
-  <p>
-    <a id="w3r" type="text/html" hreflang="en-us" rel="nofollow" target="_self" href="http://www.w3resource.com/">w3resource</a>
-  </p>
-  <button onclick="getAttributes()">Click here to get  attributes value</button>
-</body>
-</html>```
+Write a JavaScript  function to get the value of the href, hreflang, rel, target, and type  attributes of the specified link.
 [Link to this task](https://vladgalafm.github.io/MA_JS_Practice/Homework_6_DOM/task1/)
 
 ## Task 2
