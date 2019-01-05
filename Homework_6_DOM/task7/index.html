@@ -6,28 +6,33 @@
 </head>
 <body>
 <button id="button" onclick="colorText(elem)">Click here to color text</button>
-<p id="holidays">Merry Christmas! And Happy New Year!</p>
+<p id="holidays">Merry <b>Christmas</b>! And <i>Happy New Year</i>!</p>
 <script>
   var elem = document.getElementById('holidays');
-  var colors = ['#ff0000', '#ffdd00', '#00ff00', '#0000ff'];
+  var colors = ['#ff3300', '#ffcc00', '#00cc33', '#0099cc'];
 
   function randomColor(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
   }
 
   function colorText(textBlock) {
-    var string = textBlock.innerHTML;
-    var newString = '';
-
-    for (var i = 0; i < string.length; i++) {
-      if (string[i] === ' ') {
-        newString += string[i];
-      } else {
-        newString += '<span>' + string[i] + '</span>';
+    // Обертка каждого символа в span, учитывая пробелы и наличие тэгов внутри textBlock
+    if (!textBlock.querySelector('span')) {
+      var string = textBlock.innerHTML;
+      var newString = '';
+      var tagCatcher = '';
+      for (var i = 0; i < string.length; i++) {
+        if (string[i] === '<' || string[i] === '>') {
+          tagCatcher = string[i];
+          newString += string[i];
+        } else if (string[i] === ' ' || tagCatcher === '<') {
+          newString += string[i];
+        } else {
+          newString += '<span>' + string[i] + '</span>';
+        }
       }
+      textBlock.innerHTML = newString;
     }
-
-    textBlock.innerHTML = newString;
 
     var spanCollection = textBlock.getElementsByTagName('span');
     var previousColor = '';
@@ -38,8 +43,6 @@
       } while (spanCollection[i].style.color === previousColor);
       previousColor = spanCollection[i].style.color;
     }
-
-    document.getElementById('button').disabled = true;
   }
 </script>
 </body>

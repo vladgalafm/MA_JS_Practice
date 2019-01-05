@@ -1,18 +1,38 @@
 # MA_JS_Practice_Homework_6
 
 ## Task 1
-Write a JavaScript  function to get the value of the href, hreflang, rel, target, and type  attributes of the specified link.
+Here is a sample html file with a submit button. Write a JavaScript  function to get the value of the href, hreflang, rel, target, and type  attributes of the specified link.
+
+```
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <title>Title</title>
+    <meta charset=utf-8 />
+  </head>
+  <body>
+  <p>
+    <a id="w3r" type="text/html" hreflang="en-us" rel="nofollow" target="_self" href="http://www.w3resource.com/">w3resource</a>
+  </p>
+  <button onclick="getAttributes()">Click here to get  attributes value</button>
+</body>
+</html>
+```
 
 [GitHub-pages for this task](https://vladgalafm.github.io/MA_JS_Practice/Homework_6_DOM/task1/)
 
 ## Task 2
-Создайте таблицу с 10 стороками и столбцами! Напишите код, который выделит все ячейки в таблице по диагонали.
+Создайте таблицу с 10 стороками и столбцами! Напишите код, который выделит все ячейки в таблице по диагонали. Нужно будет получить из таблицы table все диагональные td и выделить их, используя код:
+
+```
+// в переменной td DOM-элемент для тега <td>
+td.style.backgroundColor = 'red';
+```
 
 [GitHub-pages for this task](https://vladgalafm.github.io/MA_JS_Practice/Homework_6_DOM/task2/)
 
 ## Task 3
 Напишите функцию createSpanInBlockByID(blockID) которая будет создавать элемент 'span' в блоке id=blockID
-
 P.S. Эта функция должна проверять наличие элемента в этом блоке, если он уже там есть второй раз она его добавлять не будет!
 
 [GitHub-pages for this task](https://vladgalafm.github.io/MA_JS_Practice/Homework_6_DOM/task3/)
@@ -38,13 +58,11 @@ P.S. Эта функция должна проверять наличие эле
 [GitHub-pages for this task](https://vladgalafm.github.io/MA_JS_Practice/Homework_6_DOM/task7/)
 
 ## Task 8
-Существует набор данных. Нужно вывести его на экран в виде галлереи карточек (сделайте красиво :) ).
-
+Существует [набор данных](https://mate-academy.github.io/fe-program/resources/lesson16/data.js). Нужно вывести его на экран в виде галлереи карточек (сделайте красиво :) ).
 На основе набора данных:
 * подсчитайте среднюю разницу в возрасте между матерями и их детьми
 * подсчитайте средний возраст мужчин
 * подсчитайте средний возраст женщин
-
 Затем нужно вывести блок данной статистической информации на экран (красиво :) ).
 
 [GitHub-pages for this task](https://vladgalafm.github.io/MA_JS_Practice/Homework_6_DOM/task8/)

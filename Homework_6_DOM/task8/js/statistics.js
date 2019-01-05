@@ -9,17 +9,17 @@ statsblock.appendChild(headline);
 
 var averageMale = document.createElement('p');
 averageMale.className = 'container__stats';
-averageMale.innerHTML = 'Everage male age: ' + averageAge('m');
+averageMale.innerHTML = 'Average male age: ' + averageAge('m');
 statsblock.appendChild(averageMale);
 
 var averageFemale = document.createElement('p');
 averageFemale.className = 'container__stats';
-averageFemale.innerHTML = 'Everage female age: ' + averageAge('f');
+averageFemale.innerHTML = 'Average female age: ' + averageAge('f');
 statsblock.appendChild(averageFemale);
 
 var averageDiff = document.createElement('p');
 averageDiff.className = 'container__stats';
-averageDiff.innerHTML = 'Everage difference between children and their mothers\' ages: ' + averageDifference();
+averageDiff.innerHTML = 'Average difference between children and their mothers\' ages: ' + averageDifference();
 statsblock.appendChild(averageDiff);
 
 function averageAge(sex) {
