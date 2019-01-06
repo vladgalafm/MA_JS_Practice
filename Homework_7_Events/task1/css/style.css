@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: 'Arial', 'Helvetica', sans-serif;
+}
+
+body {
+  background-color: #e0e5e9;
+}
+
+.slider {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  padding: 25px 25px 0;
+  border: 3px solid #888888;
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+
+.slider__inner {
+  width: 600px;
+  overflow: hidden;
+  background-color: #666666;
+}
+
+.slider__images-list {
+  height: 337.33529px;
+  width: 6000px;
+  margin-left: 0;
+  list-style: none;
+  -webkit-transition: margin-left 0.5s;
+  -o-transition: margin-left 0.5s;
+  transition: margin-left 0.5s;
+  font-size: 0;
+}
+
+.slider__li {
+  display: inline-block;
+}
+
+.slider__image {
+  width: 600px;
+  height: 337.33529px;
+}
+
+.slider__control {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 75px;
+}
+
+.slider__switch {
+  padding-bottom: 5px;
+  font-size: 32px;
+  font-weight: 700;
+  color: #999999;
+  background-color: #ffffff;
+}
+
+.slider__switch--to-previous {
+  margin-right: 7px;
+}
+
+.slider__switch--to-next {
+  margin-left: 7px;
+  margin-right: auto;
+}
+
+.slider__switch:hover {
+  color: #777777;
+  cursor: pointer;
+}
+
+.slider__button {
+  padding: 5px 10px 3px;
+  font-size: 16px;
+  font-weight: 700;
+  border: 1px solid #444444;
+  border-radius: 5px;
+  color: #444444;
+  background-color: #dddddd;
+}
+
+.slider__button--delete-slide {
+  margin-left: auto;
+}
+
+.slider__button--add-slide {
+  margin-left: auto;
+}
+
+.slider__button:hover {
+  background-color: #cccccc;
+  cursor: pointer;
+}
+
+.slider__slide-number {
+  font-size: 25px;
+  font-weight: 700;
+  color: #444444;
+}
+
+.slider__to-n-slide {
+  padding-top: 1px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #444444;
+}
+
+.slider__to-n-slide--label {
+  margin-right: 5px;
+}
+
+.slider__to-n-slide--input {
+  width: 40px;
+}

@@ -6,7 +6,7 @@ var plumber = require("gulp-plumber");
 var autoprefixer = require("gulp-autoprefixer");
 
 gulp.task('sass', function(){
-  gulp.src('Homework_6_DOM/task8/scss/main.scss')
+  gulp.src('Homework_7_Events/task1/scss/main.scss')
     .pipe(plumber())
     .pipe(sass({outputStyle: 'expanded'}))
     .pipe(rename('style.css'))
@@ -22,18 +22,18 @@ gulp.task('sass', function(){
         "Safari >= 6"],
       cascade: false
     }))
-    .pipe(gulp.dest('Homework_6_DOM/task8/css'))
+    .pipe(gulp.dest('Homework_7_Events/task1/css'))
     .pipe(browserSync.reload({stream: true}));
 });
 
 gulp.task('watch', ['sass', 'browser'], function(){
-  gulp.watch('Homework_6_DOM/task8/scss/**/*.scss', ['sass']);
+  gulp.watch('Homework_7_Events/task1/scss/**/*.scss', ['sass']);
 });
 
 gulp.task('browser', function(){
   browserSync({
     server: {
-      baseDir: 'Homework_6_DOM/task8'
+      baseDir: 'Homework_7_Events/task1'
     },
     notify: false
   });

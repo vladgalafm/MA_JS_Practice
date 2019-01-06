@@ -3,9 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <title>Slider</title>
+  <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-<div class="slider"></div>
+<div class="slider">
+  <div class="slider__inner">
+    <ul class="slider__images-list">
+    </ul>
+  </div>
+  <div class="slider__control">
+    <button class="slider__switch slider__switch--to-previous">&#10094;</button>
+    <span class="slider__slide-number">1</span>
+    <button class="slider__switch slider__switch--to-next">&#10095;</button>
+    <label class="slider__to-n-slide slider__to-n-slide--label" for="to-n-slide">Go to slide №</label>
+    <input class="slider__to-n-slide slider__to-n-slide--input" id="to-n-slide" type="number" min="1" value="1">
+    <button class="slider__button slider__button--add-slide">Add new slide</button>
+    <button class="slider__button slider__button--delete-slide">Delete slide</button>
+  </div>
+</div>
 <script src="js/slider.js"></script>
 <script src="js/index.js"></script>
 </body>
