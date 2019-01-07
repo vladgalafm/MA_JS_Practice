@@ -1,3 +1,6 @@
+/*  Создать функцию createURL(templateURL, params), которая на основе шаблона и параметров формирует URL
+*/
+
 console.log('Task 3');
 
 var templateURL = '/api/countries/{country}/regions/{region}/';
