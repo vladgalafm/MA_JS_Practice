@@ -32,7 +32,7 @@ td.style.backgroundColor = 'red';
 [GitHub-pages for this task](https://vladgalafm.github.io/MA_JS_Practice/Homework_6_DOM/task2/)
 
 ## Task 3
-Напишите функцию createSpanInBlockByID(blockID) которая будет создавать элемент 'span' в блоке id=blockID
+Напишите функцию createSpanInBlockByID(blockID) которая будет создавать элемент 'span' в блоке id=blockID  
 P.S. Эта функция должна проверять наличие элемента в этом блоке, если он уже там есть второй раз она его добавлять не будет!
 
 [GitHub-pages for this task](https://vladgalafm.github.io/MA_JS_Practice/Homework_6_DOM/task3/)
@@ -58,7 +58,8 @@ P.S. Эта функция должна проверять наличие эле
 [GitHub-pages for this task](https://vladgalafm.github.io/MA_JS_Practice/Homework_6_DOM/task7/)
 
 ## Task 8
-Существует [набор данных](https://mate-academy.github.io/fe-program/resources/lesson16/data.js). Нужно вывести его на экран в виде галлереи карточек (сделайте красиво :) ).
+Существует [набор данных](https://mate-academy.github.io/fe-program/resources/lesson16/data.js). Нужно вывести его на экран в виде галлереи карточек (сделайте красиво :) ).  
+
 На основе набора данных:
 * подсчитайте среднюю разницу в возрасте между матерями и их детьми
 * подсчитайте средний возраст мужчин
