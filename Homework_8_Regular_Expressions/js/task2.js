@@ -18,7 +18,7 @@ do {
 } while (a !== null);
 
 function findArithmeticOperation(str) {
-  var match = /(-?\d+)\s*(\+|-|\*|\/)\s*(-?\d+)/.exec(str);
+  var match = /(-?\d+)\s*([+\-*\/])\s*(-?\d+)/.exec(str);
 
   if (match === null) {
     console.log('Arithmetic operation has not been found');
