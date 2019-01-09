@@ -1,6 +1,6 @@
 var slider = document.querySelector('.js-slider');
-var list = slider.querySelector('.js-slider__images-list');
-var slideNumber = slider.querySelector('.js-slider__slide-number');
+var list = slider.querySelector('.js-list');
+var slideNumber = slider.querySelector('.js-slide-number');
 
 var images = sliderModule.getSlidesArray();
 
@@ -13,49 +13,55 @@ for (var i = 0; i < images.length; i++) {
   addNewImage(i);
 }
 
-slider.querySelector('.js-slider__switch--to-previous').onclick = function() {
+slider.querySelector('.js-to-previous-slide').onclick = function() {
   sliderModule.toPreviousSlide();
   goToCurrentSlide();
 };
 
-slider.querySelector('.js-slider__switch--to-next').onclick = function() {
+slider.querySelector('.js-to-next-slide').onclick = function() {
   sliderModule.toNextSlide();
   goToCurrentSlide();
 };
 
-slider.querySelector('.js-slider__to-n-slide--input').addEventListener('keydown', function(e) {
+slider.querySelector('.js-to-n-slide').addEventListener('keydown', function(e) {
   if (e.keyCode === 13) {
     sliderModule.toSlideNumber(+toSlideInput.value);
     goToCurrentSlide();
   }
 });
 
-slider.querySelector('.js-slider__button--add-slide').onclick = function() {
+slider.querySelector('.js-add-slide').onclick = function() {
   var num = sliderModule.addSlide();
   images = sliderModule.getSlidesArray();
   toSlideInput.setAttribute('max', images.length);
+  setListWidth();
   if (num) {
     addNewImage(num - 1);
   }
   goToCurrentSlide();
 };
 
-slider.querySelector('.js-slider__button--delete-slide').onclick = function() {
+slider.querySelector('.js-delete-slide').onclick = function() {
   var num = sliderModule.deleteSlide();
   images = sliderModule.getSlidesArray();
   toSlideInput.setAttribute('max', images.length);
+  setListWidth();
   if (num) {
     list.removeChild(list.children[num - 1]);
   }
   goToCurrentSlide();
 };
 
+function setListWidth() {
+  list.style.width = width * images.length;
+}
+
 function addNewImage(i) {
   var newLi = document.createElement('li');
-  newLi.className = 'js-slider__li';
+  newLi.className = 'slider__li';
   list.insertBefore(newLi, list.children[i]);
   var newImage = document.createElement('img');
-  newImage.className = 'js-slider__image';
+  newImage.className = 'slider__image';
   newImage.setAttribute('src', images[i].src);
   newImage.setAttribute('alt', images[i].alt);
   newLi.appendChild(newImage);

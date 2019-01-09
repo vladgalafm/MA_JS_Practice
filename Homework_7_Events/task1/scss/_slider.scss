@@ -1,8 +1,7 @@
 .slider {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 50px;
+  right: 100px;
   padding: 25px 25px 0;
   border: 3px solid #888888;
   border-radius: 10px;
@@ -16,7 +15,7 @@
 
   &__images-list {
     height: $image-height;
-    width: $image-width * 10;
+    width: $image-width * 4;
     margin-left: 0;
     list-style: none;
     transition: margin-left 0.5s;

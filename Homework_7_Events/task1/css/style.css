@@ -14,12 +14,8 @@ body {
 
 .slider {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  top: 50px;
+  right: 100px;
   padding: 25px 25px 0;
   border: 3px solid #888888;
   border-radius: 10px;
@@ -34,7 +30,7 @@ body {
 
 .slider__images-list {
   height: 337.33529px;
-  width: 6000px;
+  width: 2400px;
   margin-left: 0;
   list-style: none;
   -webkit-transition: margin-left 0.5s;
@@ -128,4 +124,160 @@ body {
 
 .slider__to-n-slide--input {
   width: 40px;
+}
+
+.menu {
+  position: absolute;
+  top: 50px;
+  padding: 50px 50px 20px;
+  max-width: 300px;
+  background-color: #565d67;
+  -webkit-transition: left, 0.5s;
+  -o-transition: left, 0.5s;
+  transition: left, 0.5s;
+  visibility: hidden;
+}
+
+.menu__close {
+  top: 15px;
+  right: 15px;
+}
+
+.menu__li {
+  padding-bottom: 30px;
+  list-style-type: none;
+}
+
+.menu__href {
+  font-family: "Titillium Web", "Arial", sans-serif;
+  color: #ffffff;
+  font-size: 1rem;
+  line-height: 1rem;
+  letter-spacing: 0.1rem;
+  font-weight: 400;
+  text-decoration: none;
+  -webkit-transition-duration: 0.1s;
+  -o-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  cursor: pointer;
+}
+
+.menu__href:hover {
+  color: #dddddd;
+}
+
+.show-button {
+  position: absolute;
+  left: 20px;
+  padding: 7px 20px;
+  font-family: 'Titillium Web', 'Arial', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffee;
+  border: 2px solid #ffffee;
+  border-radius: 15px;
+  background-color: #565d67;
+  -webkit-box-shadow: 0 2px 6px #565d67;
+  box-shadow: 0 2px 6px #565d67;
+  cursor: pointer;
+}
+
+.show-button--menu {
+  top: 60px;
+}
+
+.show-button--modal-window {
+  top: 250px;
+}
+
+.close-button {
+  position: absolute;
+  cursor: pointer;
+}
+
+.close-button line {
+  -webkit-transition-duration: 0.1s;
+  -o-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+}
+
+.close-button:hover line {
+  stroke: #dddddd;
+}
+
+.modal-window {
+  position: absolute;
+  top: 150px;
+  left: 10px;
+  -webkit-transform-origin: 0 50%;
+  -ms-transform-origin: 0 50%;
+  -o-transform-origin: 0 50%;
+  transform-origin: 0 50%;
+  min-width: 300px;
+  max-width: 500px;
+  padding: 2.5rem;
+  font-family: "Titillium Web", "Arial", sans-serif;
+  font-weight: 300;
+  color: #ffffff;
+  background-color: #565d67;
+  visibility: hidden;
+}
+
+.modal-window--animation {
+  -webkit-animation-name: appearance;
+  -o-animation-name: appearance;
+  animation-name: appearance;
+  -webkit-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+}
+
+.modal-window__close {
+  top: 15px;
+  right: 15px;
+}
+
+.modal-window__text {
+  line-height: 1.8rem;
+}
+
+.modal-window__text--bold {
+  margin-top: 1.5rem;
+  font-weight: 400;
+  text-align: center;
+}
+
+@-webkit-keyframes appearance {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@-o-keyframes appearance {
+  0% {
+    -o-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    -o-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes appearance {
+  0% {
+    -webkit-transform: scale(0.5);
+    -o-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+  }
 }

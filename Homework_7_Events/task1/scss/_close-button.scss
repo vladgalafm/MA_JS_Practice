@@ -1,0 +1,12 @@
+.close-button {
+  position: absolute;
+  cursor: pointer;
+
+  line {
+    transition-duration: 0.1s;
+  }
+
+  &:hover line {
+    stroke: #dddddd;
+  }
+}
