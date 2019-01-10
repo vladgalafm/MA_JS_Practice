@@ -7,7 +7,9 @@ var images = sliderModule.getSlidesArray();
 var toSlideInput = document.getElementById('to-n-slide');
 toSlideInput.setAttribute('max', images.length);
 
-var width = 600;
+var width = 600; // ширина одного слайда в пикселях
+
+setListWidth();
 
 for (var i = 0; i < images.length; i++) {
   addNewImage(i);
@@ -32,28 +34,28 @@ slider.querySelector('.js-to-n-slide').addEventListener('keydown', function(e) {
 
 slider.querySelector('.js-add-slide').onclick = function() {
   var num = sliderModule.addSlide();
-  images = sliderModule.getSlidesArray();
-  toSlideInput.setAttribute('max', images.length);
-  setListWidth();
   if (num) {
+    images = sliderModule.getSlidesArray();
+    toSlideInput.setAttribute('max', images.length);
+    setListWidth();
     addNewImage(num - 1);
+    goToCurrentSlide();
   }
-  goToCurrentSlide();
 };
 
 slider.querySelector('.js-delete-slide').onclick = function() {
   var num = sliderModule.deleteSlide();
-  images = sliderModule.getSlidesArray();
-  toSlideInput.setAttribute('max', images.length);
-  setListWidth();
   if (num) {
+    images = sliderModule.getSlidesArray();
+    toSlideInput.setAttribute('max', images.length);
+    setListWidth();
     list.removeChild(list.children[num - 1]);
+    goToCurrentSlide();
   }
-  goToCurrentSlide();
 };
 
 function setListWidth() {
-  list.style.width = width * images.length;
+  list.style.width = width * images.length + 'px';
 }
 
 function addNewImage(i) {
