@@ -1,0 +1,57 @@
+@mixin border($color) {
+  border-left: 1px solid $color;
+  border-top: 1px solid $color;
+  border-right: 1px solid $color;
+}
+
+.tabs {
+  position: absolute;
+  top: 420px;
+  left: 10px;
+  width: 550px;
+
+  &__switch-menu {
+    display: flex;
+  }
+
+  &__switch {
+    padding: 8px 15px;
+    font-size: 20px;
+    color: #3399cc;
+    background-color: #ffffff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom: 1px solid #999999;
+    @include border(#ffffff);
+
+    &:hover {
+      color: #4488bb;
+      cursor: pointer;
+      @include border(#bbbbbb);
+    }
+
+    &--active {
+      color: #444444;
+      border-bottom: 1px solid #ffffff;
+      @include border(#999999);
+    }
+  }
+
+  &__additional {
+    flex-grow: 1;
+    border-bottom: 1px solid #999999;
+  }
+
+  &__main {
+    background-color: #ffffff;
+  }
+
+  &__content {
+    padding: 15px;
+    display: none;
+
+    &--visible {
+      display: block;
+    }
+  }
+}

@@ -10,9 +10,14 @@ body {
   background-color: #e0e5e9;
 }
 
+button {
+  outline: none;
+}
+
 @import "variables";
 @import "slider";
 @import "menu";
 @import "show-button";
 @import "close-button";
 @import "modal-window";
+@import "tabs";

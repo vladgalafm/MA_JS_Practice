@@ -54,9 +54,33 @@
   </ul>
 </div>
 
+<div class="tabs js-tabs">
+  <div class="tabs__switch-menu">
+    <button class="tabs__switch tabs__switch--active js-switch" onclick="switchTo(event, 'home')">Home</button>
+    <button class="tabs__switch js-switch" onclick="switchTo(event, 'profile')">Profile</button>
+    <button class="tabs__switch js-switch" onclick="switchTo(event, 'contact')">Contact</button>
+    <div class="tabs__additional"></div>
+  </div>
+  <div class="tabs__main">
+    <p class="tabs__content tabs__content--visible js-content js-content-home">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+      ut labore et dolore magna aliqua. Et molestie ac feugiat sed lectus. Velit dignissim sodales ut eu sem integer vitae
+      justo eget. Eget mi proin sed libero enim. Dignissim diam quis enim lobortis scelerisque. Laoreet sit amet cursus sit
+      amet dictum sit. Proin fermentum leo vel orci porta non pulvinar. Vel turpis nunc eget lorem dolor sed viverra ipsum.
+      Sodales ut eu sem integer vitae.</p>
+    <p class="tabs__content js-content js-content-profile">Ante metus dictum at tempor commodo ullamcorper a. Mi eget mauris pharetra et ultrices
+      neque. Viverra vitae congue eu consequat ac. Nec feugiat in fermentum posuere urna nec tincidunt praesent semper.
+      Ultrices tincidunt arcu non sodales neque sodales ut.</p>
+    <p class="tabs__content js-content js-content-contact">Placerat orci nulla pellentesque dignissim enim sit amet venenatis. Ultricies integer
+      quis auctor elit sed vulputate mi. Eu lobortis elementum nibh tellus molestie nunc non blandit massa. Est ante in nibh
+      mauris cursus mattis. Suspendisse ultrices gravida dictum fusce ut. Tellus in metus vulputate eu scelerisque felis
+      imperdiet. Mattis nunc sed blandit libero volutpat sed cras. Cursus vitae congue mauris rhoncus.</p>
+  </div>
+</div>
+
 <script src="js/sliderModule.js"></script>
 <script src="js/slider.js"></script>
 <script src="js/modal-window.js"></script>
 <script src="js/menu.js"></script>
+<script src="js/tabs.js"></script>
 </body>
 </html>

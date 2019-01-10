@@ -12,6 +12,10 @@ body {
   background-color: #e0e5e9;
 }
 
+button {
+  outline: none;
+}
+
 .slider {
   position: absolute;
   top: 50px;
@@ -187,7 +191,11 @@ body {
 }
 
 .show-button--modal-window {
-  top: 250px;
+  top: 220px;
+}
+
+.show-button:hover {
+  background-color: #444444;
 }
 
 .close-button {
@@ -207,7 +215,7 @@ body {
 
 .modal-window {
   position: absolute;
-  top: 150px;
+  top: 130px;
   left: 10px;
   -webkit-transform-origin: 0 50%;
   -ms-transform-origin: 0 50%;
@@ -280,4 +288,68 @@ body {
     -o-transform: scale(1);
     transform: scale(1);
   }
+}
+
+.tabs {
+  position: absolute;
+  top: 420px;
+  left: 10px;
+  width: 550px;
+}
+
+.tabs__switch-menu {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.tabs__switch {
+  padding: 8px 15px;
+  font-size: 20px;
+  color: #3399cc;
+  background-color: #ffffff;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom: 1px solid #999999;
+  border-left: 1px solid #ffffff;
+  border-top: 1px solid #ffffff;
+  border-right: 1px solid #ffffff;
+}
+
+.tabs__switch:hover {
+  color: #4488bb;
+  cursor: pointer;
+  border-left: 1px solid #bbbbbb;
+  border-top: 1px solid #bbbbbb;
+  border-right: 1px solid #bbbbbb;
+}
+
+.tabs__switch--active {
+  color: #444444;
+  border-bottom: 1px solid #ffffff;
+  border-left: 1px solid #999999;
+  border-top: 1px solid #999999;
+  border-right: 1px solid #999999;
+}
+
+.tabs__additional {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  border-bottom: 1px solid #999999;
+}
+
+.tabs__main {
+  background-color: #ffffff;
+}
+
+.tabs__content {
+  padding: 15px;
+  display: none;
+}
+
+.tabs__content--visible {
+  display: block;
 }

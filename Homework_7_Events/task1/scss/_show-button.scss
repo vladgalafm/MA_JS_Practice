@@ -8,8 +8,8 @@
   color: #ffffee;
   border: 2px solid #ffffee;
   border-radius: 15px;
-  background-color: #565d67;
-  box-shadow: 0 2px 6px #565d67;
+  background-color: $block-background;
+  box-shadow: 0 2px 6px $block-background;
   cursor: pointer;
 
   &--menu {
@@ -17,6 +17,10 @@
   }
 
   &--modal-window {
-    top: 250px;
+    top: 220px;
+  }
+
+  &:hover {
+    background-color: $show-button-hover;
   }
 }
