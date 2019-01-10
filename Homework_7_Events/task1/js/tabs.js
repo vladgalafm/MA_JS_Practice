@@ -3,11 +3,11 @@ function switchTo(e, tab) {
   var tabSwitch = tabs.querySelectorAll('.js-switch');
   var tabContent = tabs.querySelectorAll('.js-content');
 
-  for (var i = 0; tabContent.length; i++) {
+  for (var i = 0; i < tabContent.length; i++) {
     tabContent[i].classList.remove('tabs__content--visible');
   }
 
-  for (i = 0; tabSwitch.length; i++) {
+  for (i = 0; i < tabSwitch.length; i++) {
     tabSwitch[i].classList.remove('tabs__switch--active');
   }
 
