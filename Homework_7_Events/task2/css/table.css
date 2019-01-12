@@ -1219,3 +1219,9 @@ cite {
   background: #1d0b98;
   color: #fff;
 }
+
+/* ADDITIONAL */
+
+.display-none {
+  display: none;
+}

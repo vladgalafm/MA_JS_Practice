@@ -13,7 +13,7 @@
     <span class="show__title">
       Show
     </span>
-    <input class="show__input" type="number" name="rowsPerPage" value="10">
+    <input class="show__input js-rows-per-page" type="number" name="rowsPerPage" value="10" min="1">
     <span class="show__title">
       rows on page
     </span>
@@ -22,7 +22,7 @@
     <span class="filter__title">
       Filter:
     </span>
-    <input class="filter__input" type="text" name="countryName" value="">
+    <input class="filter__input js-filter" type="text" name="countryName" value="">
   </div>
 </section>
 <table cellpadding="0" cellspacing="0" id="medals-table">
@@ -1540,14 +1540,15 @@
   </tbody>
 </table>
 <section class="pager">
-  <div class="pager__info">
+  <div class="pager__info js-pager-info">
     Show 1 to 10 of 150 rows
   </div>
-  <div class="pager__controls">
-    <a class="pager__prev">
+  <div class="pager__controls js-pager-controls">
+    <a href="#" class="pager__prev js-pager-prev">
       Previous
     </a>
-    <ul class="pager__list">
+    <ul class="pager__list js-pager-list">
+      <!--
       <li class="pager__list-item">
         <a href="#" class="pager__page">1</a>
       </li>
@@ -1558,7 +1559,7 @@
         <a href="#" class="pager__page">6</a>
       </li>
       <li class="pager__list-item">
-        <a class="pager__page pager__page--current">7</a>
+        <a href="#" class="pager__page pager__page--current">7</a>
       </li>
       <li class="pager__list-item">
         <a href="#" class="pager__page">8</a>
@@ -1569,8 +1570,9 @@
       <li class="pager__list-item">
         <a href="#" class="pager__page">15</a>
       </li>
+      -->
     </ul>
-    <a href="#" class="pager__next">
+    <a href="#" class="pager__next js-pager-next">
       Next
     </a>
   </div>
