@@ -1,5 +1,5 @@
 var menu = document.querySelector('.js-menu');
-var menuWidth = menu.offsetWidth; // достаем фактическую ширину блока меню
+var menuWidth = menu.offsetWidth; // get actual menu-block width
 menu.style.left = -(menuWidth + 1) + 'px';
 
 var showMenu = document.querySelector('.js-show-menu');

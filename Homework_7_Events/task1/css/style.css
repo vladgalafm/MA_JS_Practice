@@ -133,6 +133,7 @@ button {
   position: absolute;
   top: 50px;
   padding: 50px 50px 20px;
+  display: block;
   max-width: 300px;
   background-color: #565d67;
   -webkit-transition: left, 0.5s;
