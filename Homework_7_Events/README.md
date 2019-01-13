@@ -10,7 +10,7 @@
 
 [GitHub-pages for this task](https://vladgalafm.github.io/MA_JS_Practice/Homework_7_Events/task1/)
 
-## Part 2 ([task2](https://github.com/vladgalafm/MA_JS_Practice/tree/master/Homework_7_Events/task2) directory) - _in progress_
+## Part 2 ([task2](https://github.com/vladgalafm/MA_JS_Practice/tree/master/Homework_7_Events/task2) directory)
 Возьмите [таблицу](https://mate-academy.github.io/fe-program/resources/lessons_22/table.html) и заставьте в ней работать поиск, показ ограниченного количества строк, переключение по “страницам” и информацию о показываемых строках.
 
 [GitHub-pages for this task](https://vladgalafm.github.io/MA_JS_Practice/Homework_7_Events/task2/)

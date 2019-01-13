@@ -13,7 +13,7 @@
     <span class="show__title">
       Show
     </span>
-    <input class="show__input js-rows-per-page" type="number" name="rowsPerPage" value="10" min="1">
+    <input class="show__input js-rows-per-page" type="number" name="rowsPerPage" value="150" min="1">
     <span class="show__title">
       rows on page
     </span>
@@ -1544,7 +1544,7 @@
     Show 1 to 10 of 150 rows
   </div>
   <div class="pager__controls js-pager-controls">
-    <a href="#" class="pager__prev js-pager-prev">
+    <a href="#" class="pager__prev js-pager-prev" data-link-to-page="previous">
       Previous
     </a>
     <ul class="pager__list js-pager-list">
@@ -1572,7 +1572,7 @@
       </li>
       -->
     </ul>
-    <a href="#" class="pager__next js-pager-next">
+    <a href="#" class="pager__next js-pager-next" data-link-to-page="next">
       Next
     </a>
   </div>

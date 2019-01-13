@@ -67,7 +67,7 @@ cite {
 
 /**
  * Position counter
- */
+ *//*
 #medals-table {
   counter-reset: overall-position;
 }
@@ -76,7 +76,7 @@ cite {
   counter-increment: overall-position;
   content: counter(overall-position);
 }
-
+*/
 /**
  * Flags icons
  */
