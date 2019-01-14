@@ -23,16 +23,18 @@
       return;
     }
     pagerControls.querySelector('.pager__page--current').classList.remove('pager__page--current');
-    if (event.target.getAttribute('data-link-to-page') === 'previous') {
+    if (event.target.getAttribute('data-link-to-page') === 'previous' && currentPage !== 1) {
       pagerControls.querySelector('[data-list-item="' + --currentPage + '"]').classList.add('pager__page--current');
       rowsPerPageUpdate();
-    } else if (event.target.getAttribute('data-link-to-page') === 'next') {
+    } else if (event.target.getAttribute('data-link-to-page') === 'next' && currentPage !== pagesAmount) {
       pagerControls.querySelector('[data-list-item="' + ++currentPage + '"]').classList.add('pager__page--current');
       rowsPerPageUpdate();
-    } else {
+    } else if (!isNaN(event.target.getAttribute('data-link-to-page'))) {
       event.target.classList.add('pager__page--current');
       currentPage = +event.target.innerHTML;
       rowsPerPageUpdate();
+    } else {
+      pagerControls.querySelector('[data-link-to-page="' + currentPage + '"]').classList.add('pager__page--current');
     }
   };
 
@@ -71,7 +73,10 @@
       }
     }
     pagesAmount = Math.ceil(count / rowsPerPageInput);
-    if (currentPage > pagesAmount) {
+    if (pagesAmount === 0) {
+      pagesAmount++;
+      currentPage = 1;
+    } else if (currentPage > pagesAmount) {
       currentPage = pagesAmount;
     }
     for (i = 0; i < rows.length; i++) {
@@ -80,7 +85,7 @@
 
     pagerControlsUpdate();
 
-    pagerInfo.innerHTML = 'Show ' + (((currentPage - 1) * rowsPerPageInput) + 1) + ' to ' +
+    pagerInfo.innerHTML = 'Show ' + Math.min((((currentPage - 1) * rowsPerPageInput) + 1), count) + ' to ' +
       Math.min(currentPage * rowsPerPageInput, count) + ' of ' + count + ' rows';
   }
 
@@ -128,14 +133,14 @@
     pageLinksMappingCheckout();
 
     if (currentPage === 1) {
-      pagerPrev.disabled = true;
+      pagerPrev.removeAttribute('href');
     } else {
-      pagerPrev.disabled = false;
+      pagerPrev.setAttribute('href', '#');
     }
     if (currentPage === pagesAmount) {
-      pagerNext.disabled = true;
+      pagerNext.removeAttribute('href');
     } else {
-      pagerNext.disabled = false;
+      pagerNext.setAttribute('href', '#');
     }
   }
 
