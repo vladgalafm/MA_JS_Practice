@@ -15,7 +15,9 @@
 
 [GitHub-pages for this task](https://vladgalafm.github.io/MA_JS_Practice/Homework_7_Events/task2/)
 
-## Part 3  - _in progress_
+## Part 3
 Реализовать плавный скролл на странице при клике на ссылку `<a href="#...">`. Реализовать при скролле вниз и вверх страницы.
 
-[GitHub-pages for this task](https://vladgalafm.github.io/MA_JS_Practice/Homework_7_Events/)
+[Link to JavaScript file](https://github.com/vladgalafm/MA_Task_9_BicycleTheme/blob/master/app/js/smoothScroll.js)
+
+[Test smoothScroll.js here](https://vladgalafm.github.io/MA_Task_9_BicycleTheme/app/)
