@@ -13,6 +13,7 @@
   visibility: hidden;
 
   &--animation {
+    visibility: visible;
     animation-name: appearance;
     animation-duration: 1s;
   }

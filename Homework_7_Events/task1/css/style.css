@@ -232,6 +232,7 @@ button {
 }
 
 .modal-window--animation {
+  visibility: visible;
   -webkit-animation-name: appearance;
   -o-animation-name: appearance;
   animation-name: appearance;

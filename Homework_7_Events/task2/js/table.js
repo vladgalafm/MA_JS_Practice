@@ -47,7 +47,7 @@
       if (countryName.indexOf(filterInput) !== -1) {
         rows[i].dataset.filter = true;
       }
-      if (!!rows[i].dataset.filter) {
+      if (rows[i].dataset.filter === 'true') {
         rows[i].classList.remove('display-none');
       } else {
         rows[i].classList.add('display-none');
