@@ -15,3 +15,5 @@
 [Homework 7. Events (link to directory)](https://github.com/vladgalafm/MA_JS_Practice/tree/master/Homework_7_Events)
 
 [Homework 8. Regular Expressions](https://vladgalafm.github.io/MA_JS_Practice/Homework_8_Regular_Expressions/)
+
+[Homework 9. Forms Validation](https://vladgalafm.github.io/MA_JS_Practice/Homework_9_Forms/)

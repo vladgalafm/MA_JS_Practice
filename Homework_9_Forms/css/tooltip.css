@@ -1,0 +1,48 @@
+.input-container {
+  position: relative;
+}
+
+.input-container__input--correct {
+  border: 2px solid #5cb85c !important;
+}
+
+.input-container__input--correct:focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(92, 184, 92, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(92, 184, 92, 0.5);
+}
+
+.input-container__input--error {
+  border: 2px solid #d9534f !important;
+}
+
+.input-container__input--error:focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(217, 83, 79, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(217, 83, 79, 0.5);
+}
+
+.input-container__tooltip {
+  position: absolute;
+  bottom: 30px;
+  right: 0;
+  display: block;
+  max-width: 250px;
+  padding: 10px 10px 10px 35px;
+  color: #333333;
+  font-size: 12px;
+  font-weight: 700;
+  border: 1px solid #333333;
+  -webkit-box-shadow: 2px 2px 3px #000000;
+  box-shadow: 2px 2px 3px #000000;
+  background: #ffffff url("../img/icon.png") 10px 50% no-repeat;
+  -webkit-background-size: 15px 15px;
+  background-size: 15px 15px;
+  visibility: hidden;
+}
+
+.input-container:hover .input-container__tooltip--visible {
+  visibility: visible;
+}
+
+.input-container input:focus ~ .input-container__tooltip--visible {
+  visibility: visible;
+}

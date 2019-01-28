@@ -1,0 +1,46 @@
+.input-container {
+  position: relative;
+
+  &__input {
+    &--correct {
+      border: 2px solid #5cb85c !important;
+
+      &:focus {
+        box-shadow: 0 0 0 0.2rem rgba(92, 184, 92, 0.5);
+      }
+    }
+
+    &--error {
+      border: 2px solid #d9534f !important;
+
+      &:focus {
+        box-shadow: 0 0 0 0.2rem rgba(217, 83, 79, 0.5);
+      }
+    }
+  }
+
+  &__tooltip {
+    position: absolute;
+    bottom: 30px;
+    right: 0;
+    display: block;
+    max-width: 250px;
+    padding: 10px 10px 10px 35px;
+    color: #333333;
+    font-size: 12px;
+    font-weight: 700;
+    border: 1px solid #333333;
+    box-shadow: 2px 2px 3px #000000;
+    background: #ffffff url("../img/warning_icon.png") 10px 50% no-repeat;
+    background-size: 15px 15px;
+    visibility: hidden;
+  }
+
+  &:hover .input-container__tooltip--visible {
+    visibility: visible;
+  }
+
+  input:focus ~ .input-container__tooltip--visible {
+    visibility: visible;
+  }
+}

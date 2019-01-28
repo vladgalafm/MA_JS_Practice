@@ -26,8 +26,28 @@ gulp.task('sass', function(){
     .pipe(browserSync.reload({stream: true}));
 });
 
-gulp.task('watch', ['sass', 'browser'], function(){
-  gulp.watch('Homework_9_Forms/scss/**/*.scss', ['sass']);
+gulp.task('sass-tooltip', function(){
+  gulp.src('Homework_9_Forms/scss/tooltip.scss')
+    .pipe(plumber())
+    .pipe(sass({outputStyle: 'expanded'}))
+    .pipe(autoprefixer({
+      browsers: [
+        "Android 2.3",
+        "Android >= 4",
+        "Chrome >= 20",
+        "Firefox >= 24",
+        "Explorer >= 8",
+        "iOS >= 6",
+        "Opera >= 12",
+        "Safari >= 6"],
+      cascade: false
+    }))
+    .pipe(gulp.dest('Homework_9_Forms/css'))
+    .pipe(browserSync.reload({stream: true}));
+});
+
+gulp.task('watch', ['sass', 'browser', 'sass-tooltip'], function(){
+  gulp.watch('Homework_9_Forms/scss/**/*.scss', ['sass', 'sass-tooltip']);
 });
 
 gulp.task('browser', function(){
@@ -48,4 +68,4 @@ npm install --save-dev gulp-rename
 npm install browser-sync gulp --save-dev
 npm install --save-dev gulp-plumber
 npm install --save-dev gulp-autoprefixer
- */
+*/
