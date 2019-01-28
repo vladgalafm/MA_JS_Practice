@@ -33,7 +33,7 @@
   border: 1px solid #333333;
   -webkit-box-shadow: 2px 2px 3px #000000;
   box-shadow: 2px 2px 3px #000000;
-  background: #ffffff url("../img/icon.png") 10px 50% no-repeat;
+  background: #ffffff url("../img/warning_icon.png") 10px 50% no-repeat;
   -webkit-background-size: 15px 15px;
   background-size: 15px 15px;
   visibility: hidden;
