@@ -230,52 +230,80 @@
       }
     }
 
-    var checkResults = [];
+    var checkResultsArray = [];
+    var checkResult;
 
     for (var key in formObject) {
       formObject[key].value = sideWhiteSpacesOff(formObject[key].value);
 
       if (formObject[key].validationRules.required) {
-        checkResults.push(checkRequired(formObject[key]));
-        continue;
+        checkResult = checkRequired(formObject[key]);
+        checkResultsArray.push(checkResult);
+        if (!checkResult) {
+          continue;
+        }
       }
       if (formObject[key].validationRules.minLength) {
-        checkResults.push(checkMinLength(formObject[key]));
-        continue;
+        checkResult = checkMinLength(formObject[key]);
+        checkResultsArray.push(checkResult);
+        if (!checkResult) {
+          continue;
+        }
       }
       if (formObject[key].validationRules.maxLength) {
-        checkResults.push(checkMaxLength(formObject[key]));
-        continue;
+        checkResult = checkMaxLength(formObject[key]);
+        checkResultsArray.push(checkResult);
+        if (!checkResult) {
+          continue;
+        }
       }
       if (formObject[key].validationRules.min) {
-        checkResults.push(checkMin(formObject[key]));
-        continue;
+        checkResult = checkMin(formObject[key]);
+        checkResultsArray.push(checkResult);
+        if (!checkResult) {
+          continue;
+        }
       }
       if (formObject[key].validationRules.max) {
-        checkResults.push(checkMax(formObject[key]));
-        continue;
+        checkResult = checkMax(formObject[key]);
+        checkResultsArray.push(checkResult);
+        if (!checkResult) {
+          continue;
+        }
       }
       if (formObject[key].validationRules.email) {
-        checkResults.push(checkEmail(formObject[key]));
-        continue;
+        checkResult = checkEmail(formObject[key]);
+        checkResultsArray.push(checkResult);
+        if (!checkResult) {
+          continue;
+        }
       }
       if (formObject[key].validationRules.tel) {
-        checkResults.push(checkTel(formObject[key]));
-        continue;
+        checkResult = checkTel(formObject[key]);
+        checkResultsArray.push(checkResult);
+        if (!checkResult) {
+          continue;
+        }
       }
       if (formObject[key].validationRules.ccNumber) {
-        checkResults.push(checkCCNumber(formObject[key]));
-        continue;
+        checkResult = checkCCNumber(formObject[key]);
+        checkResultsArray.push(checkResult);
+        if (!checkResult) {
+          continue;
+        }
       }
       if (formObject[key].validationRules.ccCsc) {
-        checkResults.push(checkCSC(formObject[key]));
-        continue;
+        checkResult = checkCSC(formObject[key]);
+        checkResultsArray.push(checkResult);
+        if (!checkResult) {
+          continue;
+        }
       }
       if (formObject[key].validationRules.ccExp) {
-        checkResults.push(checkCCExp(formObject[key]));
+        checkResultsArray.push(checkCCExp(formObject[key]));
       }
     }
 
-    return (checkResults.indexOf(false) === -1);
+    return (checkResultsArray.indexOf(false) === -1);
   }
 }());
