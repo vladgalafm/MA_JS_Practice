@@ -24,7 +24,7 @@
 
 Example:
 ```html
-// this input is for credit card number, so data-name attribute should have the same value as an autocomplete attribute
+<!-- this input is for credit card number, so data-name attribute should have the same value as an autocomplete attribute -->
 
 <input data-name="cc-number" name="card-number" id="cc-num" autocomplete="cc-number">
 ```
