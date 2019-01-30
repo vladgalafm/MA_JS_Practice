@@ -4,35 +4,36 @@
 
 1. To use this form validation library, add `formValidation.js` to your page. Also, make sure you have added `tooltip.css`.
 
-```
+```html
 <link href="css/tooltip.css" rel="stylesheet">
   ...
 <script src="js/formValidation.js"></script>
 ```
 
-2. Add `js-form-validation` class to forms you want to validate.
+2. Add `class="js-form-validation"` to forms you want to validate.
 
-```
+```html
 <form class="js-form-validation" action="#" method="post">
   ...
 <form>
 ```
 
-3. This library is configured by form fields attributes. So, if you want your email-input to be checked, this input should has `type=email` attribute (read about <input> attributes [here](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)).
+3. This library is configured by form fields attributes. So, for example, if you want your email-input to be checked, this input should has `type="email"` attribute (read more about input attributes [here](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)).
 
 4. Add `data-name` attributes to all your `<input>` elements with values like in [this](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill) standart (_par. 4.10.18.7 Autofill_).
 
 Example:
-```
+```html
 // this input is for credit card number, so data-name attribute should have the same value as an autocomplete attribute
+
 <input data-name="cc-number" name="card-number" id="cc-num" autocomplete="cc-number">
 ```
 
 Notice: you can fill these attributes with values you'd like, but if you want to use all features of this library, please, follow instructions.
 
-5. Wrap your inputs into blocks and add class `input-container` to these blocks. If it's possible, you can wrap inputs' `<lable>` into containers too.
+5. Wrap your inputs into blocks and add `class="input-container"` to these blocks. If it's possible, you can wrap inputs' `<lable>` into containers too.
 
-```
+```html
 <div class="input-container">
   <label for="email">Email</label>
   <input data-name="email" name="email" id="email" type="email" autocomplete="email">
@@ -42,8 +43,9 @@ Notice: you can fill these attributes with values you'd like, but if you want to
 6. If want to add some events after form validation process, when form turns valid or not valid, use _formIsValid_ and _formIsInvalid_ custom events.
 
 Example:
-```
+```html
 // if form is valid, you will see alert message
+
 var form = document.querySelector('.js-form-validation');
 form.addEventListener('formIsValid', function() {
   alert('All fields filled correctly');
