@@ -1,21 +1,31 @@
 .input-container {
   position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
 }
 
 .input-container__input--correct {
-  border: 2px solid #5cb85c !important;
+  border: 2px solid #5cb85c;
 }
 
 .input-container__input--correct:focus {
+  border: 2px solid #5cb85c;
   -webkit-box-shadow: 0 0 0 0.2rem rgba(92, 184, 92, 0.5);
   box-shadow: 0 0 0 0.2rem rgba(92, 184, 92, 0.5);
 }
 
 .input-container__input--error {
-  border: 2px solid #d9534f !important;
+  border: 2px solid #d9534f;
 }
 
 .input-container__input--error:focus {
+  border: 2px solid #d9534f;
   -webkit-box-shadow: 0 0 0 0.2rem rgba(217, 83, 79, 0.5);
   box-shadow: 0 0 0 0.2rem rgba(217, 83, 79, 0.5);
 }
@@ -45,4 +55,12 @@
 
 .input-container input:focus ~ .input-container__tooltip--visible {
   visibility: visible;
+}
+
+.pseudo-element--error::before, .pseudo-element--error::after {
+  border: 2px solid #d9534f;
+}
+
+.pseudo-element--correct::before, .pseudo-element--corect::after {
+  border: 2px solid #5cb85c;
 }

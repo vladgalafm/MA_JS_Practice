@@ -9,7 +9,7 @@
     form.setAttribute('novalidate', true);
 
     // customised Credit Card Number field input
-    var ccNumberField = form.querySelector('[name="cc-number"]');
+    var ccNumberField = form.querySelector('[data-name="cc-number"]');
     if (ccNumberField) {
       ccNumberField.addEventListener('input', function() {
         var cardCode = this.value.replace(/[^\d]/g, '').substring(0, 16);
@@ -20,31 +20,50 @@
 
     var formDescription = Object.create(null);
 
-    form.addEventListener('submit', function() {
+    form.addEventListener('submit', function(event) {
       event.preventDefault();
       var isValid = formValidation(inputsCollection, formDescription);
 
       if (isValid) {
         var formValid = new Event('formIsValid');
         form.dispatchEvent(formValid);
+        inputsCollection.forEach(function(input) {
+          input.classList.remove('input-container__input--correct', 'input-container__input--error');
+          if (input.getAttribute('type') === 'checkbox') {
+            form.querySelector('[for="' + input.getAttribute('id') + '"]').classList.remove('pseudo-element--error', 'pseudo-element--correct');
+          }
+        });
       } else {
         var formInvalid = new Event('formIsInvalid');
         form.dispatchEvent(formInvalid);
         var elementFocused = false;
+
         inputsCollection.forEach(function(input) {
           input.classList.remove('input-container__input--correct', 'input-container__input--error');
-          var inputName = input.getAttribute('name');
-          var tooltip = document.body.querySelector('[data-for-input="' + input.getAttribute('name') + '"]');
+          if (input.getAttribute('type') === 'checkbox') {
+            form.querySelector('[for="' + input.getAttribute('id') + '"]').classList.remove('pseudo-element--error', 'pseudo-element--correct');
+          }
+
+          var inputName = input.dataset.name;
+          var tooltip = document.body.querySelector('[data-for-input="' + inputName + '"]');
+
           if (formDescription[inputName].errorMessage !== '') {
             if (!elementFocused) {
               input.focus();
               window.scrollTo(0, getCoordinates(input).top - 60);
             }
             elementFocused = true;
+
+            if (input.getAttribute('type') === 'checkbox') {
+              form.querySelector('[for="' + input.getAttribute('id') + '"]').classList.add('pseudo-element--error');
+            }
             input.classList.add('input-container__input--error');
             tooltip.classList.add('input-container__tooltip--visible');
             tooltip.innerHTML = formDescription[inputName].errorMessage;
           } else {
+            if (input.getAttribute('type') === 'checkbox') {
+              form.querySelector('[for="' + input.getAttribute('id') + '"]').classList.add('pseudo-element--correct');
+            }
             input.classList.add('input-container__input--correct');
             tooltip.classList.remove('input-container__tooltip--visible');
           }
@@ -60,69 +79,104 @@
       top: box.top + pageYOffset,
       left: box.left + pageXOffset
     };
-
   }
 
   function createTooltip(form, inputsCollection) {
-
     inputsCollection.forEach(function(input) {
       // in case of, for example, radiobuttons, when we get several inputs with identical names, but we want to draw only one tooltip
-      if (form.querySelector('[data-for-input="' + input.getAttribute('name') + '"]')) {
+      if (form.querySelector('[data-for-input="' + input.dataset.name + '"]')) {
         return;
       }
-      // input.setAttribute('data-has-tooltip', true);
       var tooltip = document.createElement('p');
-      tooltip.setAttribute('data-for-input', input.getAttribute('name'));
+      tooltip.setAttribute('data-for-input', input.dataset.name);
       tooltip.classList.add('input-container__tooltip');
-      // tooltip.innerHTML = 'Test tooltip 522242 44544 414354145 sgsdsgds ssaafsdg gahrs4rhhr tawat';
       input.parentNode.appendChild(tooltip);
     });
   }
 
   function formValidation(inputsCollection, formDescription) {
+    var checkResultsArray = [];
+    var checkResult;
 
-    inputsCollection.forEach(function(input) {
-      var inputName = input.getAttribute('name');
+    for (var i = 0; i < inputsCollection.length; i++) {
+      var input = inputsCollection[i];
+      var inputName = input.dataset.name;
       formDescription[inputName] = Object.create(null);
-      formDescription[inputName].value = input.value;
+      formDescription[inputName].value = sideWhiteSpacesOff(input.value);
       formDescription[inputName].errorMessage = '';
-      formDescription[inputName].validationRules = Object.create(null);
+
       if (input.hasAttribute('required')) {
-        formDescription[inputName].validationRules.required = true;
-      }
-      if (input.getAttribute('type') === 'email') {
-        formDescription[inputName].validationRules.email = true;
-      }
-      if (input.getAttribute('type') === 'tel') {
-        formDescription[inputName].validationRules.tel = true;
+        if (input.getAttribute('type') === 'checkbox') {
+          checkResult = checkCheckboxRequired(formDescription[inputName], input.checked);
+        } else {
+          checkResult = checkRequired(formDescription[inputName]);
+        }
+        checkResultsArray.push(checkResult);
+        if (!checkResult) {
+          continue;
+        }
       }
       if (input.hasAttribute('max')) {
-        formDescription[inputName].validationRules.max = input.getAttribute('max');
+        checkResult = checkMax(formDescription[inputName], input.getAttribute('max'));
+        checkResultsArray.push(checkResult);
+        if (!checkResult) {
+          continue;
+        }
       }
       if (input.hasAttribute('min')) {
-        formDescription[inputName].validationRules.min = input.getAttribute('min');
+        checkResult = checkMin(formDescription[inputName], input.getAttribute('min'));
+        checkResultsArray.push(checkResult);
+        if (!checkResult) {
+          continue;
+        }
       }
       if (input.hasAttribute('maxlength')) {
-        formDescription[inputName].validationRules.maxLength = input.getAttribute('maxlength');
+        checkResult = checkMaxLength(formDescription[inputName], input.getAttribute('maxlength'));
+        checkResultsArray.push(checkResult);
+        if (!checkResult) {
+          continue;
+        }
       }
       if (input.hasAttribute('minlength')) {
-        formDescription[inputName].validationRules.minLength = input.getAttribute('minlength');
+        checkResult = checkMinLength(formDescription[inputName], input.getAttribute('minlength'));
+        checkResultsArray.push(checkResult);
+        if (!checkResult) {
+          continue;
+        }
+      }
+      if (input.getAttribute('type') === 'email') {
+        checkResult = checkEmail(formDescription[inputName]);
+        checkResultsArray.push(checkResult);
+        if (!checkResult) {
+          continue;
+        }
+      }
+      if (input.getAttribute('type') === 'tel') {
+        checkResult = checkTel(formDescription[inputName]);
+        checkResultsArray.push(checkResult);
+        if (!checkResult) {
+          continue;
+        }
       }
       if (inputName === 'cc-number') {
-        formDescription[inputName].validationRules.ccNumber = true;
+        checkResult = checkCCNumber(formDescription[inputName]);
+        checkResultsArray.push(checkResult);
+        if (!checkResult) {
+          continue;
+        }
       }
       if (inputName === 'cc-csc') {
-        formDescription[inputName].validationRules.ccCsc = true;
+        checkResult = checkCSC(formDescription[inputName]);
+        checkResultsArray.push(checkResult);
+        if (!checkResult) {
+          continue;
+        }
       }
       if (inputName === 'cc-exp') {
-        formDescription[inputName].validationRules.ccExp = true;
+        checkResultsArray.push(checkCCExp(formDescription[inputName]));
       }
-    });
+    }
 
-    return validation(formDescription);
-  }
-
-  function validation(formObject) {
     function sideWhiteSpacesOff(value) {
       return value.trim();
     }
@@ -137,9 +191,9 @@
       }
     }
 
-    function checkMinLength(field) {
-      if (field.value.length < field.validationRules.minLength) {
-        field.errorMessage = 'Input is too short, minimum allowable length: ' + field.validationRules.minLength;
+    function checkCheckboxRequired(field, isChecked) {
+      if (!isChecked) {
+        field.errorMessage = 'This is required field, please, fill it';
         return false;
       } else {
         field.errorMessage = '';
@@ -147,9 +201,9 @@
       }
     }
 
-    function checkMaxLength(field) {
-      if (field.value.length > field.validationRules.maxLength) {
-        field.errorMessage = 'Input is too long, maximum allowable length: ' + field.validationRules.maxLength;
+    function checkMinLength(field, minLength) {
+      if (field.value.length < minLength) {
+        field.errorMessage = 'Input is too short, minimum allowable length: ' + minLength;
         return false;
       } else {
         field.errorMessage = '';
@@ -157,9 +211,9 @@
       }
     }
 
-    function checkMin(field) {
-      if (field.value < field.validationRules.min) {
-        field.errorMessage = 'Input is too small, minimum allowable value: ' + field.validationRules.min;
+    function checkMaxLength(field, maxLength) {
+      if (field.value.length > maxLength) {
+        field.errorMessage = 'Input is too long, maximum allowable length: ' + maxLength;
         return false;
       } else {
         field.errorMessage = '';
@@ -167,9 +221,19 @@
       }
     }
 
-    function checkMax(field) {
-      if (field.value > field.validationRules.max) {
-        field.errorMessage = 'Input is too large, maximum allowable value: ' + field.validationRules.max;
+    function checkMin(field, min) {
+      if (field.value < min) {
+        field.errorMessage = 'Input is too small, minimum allowable value: ' + min;
+        return false;
+      } else {
+        field.errorMessage = '';
+        return true;
+      }
+    }
+
+    function checkMax(field, max) {
+      if (field.value > max) {
+        field.errorMessage = 'Input is too large, maximum allowable value: ' + max;
         return false;
       } else {
         field.errorMessage = '';
@@ -198,7 +262,7 @@
     }
 
     function checkCCNumber(field) {
-      if (!/^\d{4}(\s\d{4}){3}$/.test(field.value)) {
+      if (!/^\d{4}(\s?\d{4}){3}$/.test(field.value)) {
         field.errorMessage = 'Invalid credit card number';
         return false;
       } else {
@@ -227,80 +291,6 @@
       } else {
         field.errorMessage = '';
         return true;
-      }
-    }
-
-    var checkResultsArray = [];
-    var checkResult;
-
-    for (var key in formObject) {
-      formObject[key].value = sideWhiteSpacesOff(formObject[key].value);
-
-      if (formObject[key].validationRules.required) {
-        checkResult = checkRequired(formObject[key]);
-        checkResultsArray.push(checkResult);
-        if (!checkResult) {
-          continue;
-        }
-      }
-      if (formObject[key].validationRules.minLength) {
-        checkResult = checkMinLength(formObject[key]);
-        checkResultsArray.push(checkResult);
-        if (!checkResult) {
-          continue;
-        }
-      }
-      if (formObject[key].validationRules.maxLength) {
-        checkResult = checkMaxLength(formObject[key]);
-        checkResultsArray.push(checkResult);
-        if (!checkResult) {
-          continue;
-        }
-      }
-      if (formObject[key].validationRules.min) {
-        checkResult = checkMin(formObject[key]);
-        checkResultsArray.push(checkResult);
-        if (!checkResult) {
-          continue;
-        }
-      }
-      if (formObject[key].validationRules.max) {
-        checkResult = checkMax(formObject[key]);
-        checkResultsArray.push(checkResult);
-        if (!checkResult) {
-          continue;
-        }
-      }
-      if (formObject[key].validationRules.email) {
-        checkResult = checkEmail(formObject[key]);
-        checkResultsArray.push(checkResult);
-        if (!checkResult) {
-          continue;
-        }
-      }
-      if (formObject[key].validationRules.tel) {
-        checkResult = checkTel(formObject[key]);
-        checkResultsArray.push(checkResult);
-        if (!checkResult) {
-          continue;
-        }
-      }
-      if (formObject[key].validationRules.ccNumber) {
-        checkResult = checkCCNumber(formObject[key]);
-        checkResultsArray.push(checkResult);
-        if (!checkResult) {
-          continue;
-        }
-      }
-      if (formObject[key].validationRules.ccCsc) {
-        checkResult = checkCSC(formObject[key]);
-        checkResultsArray.push(checkResult);
-        if (!checkResult) {
-          continue;
-        }
-      }
-      if (formObject[key].validationRules.ccExp) {
-        checkResultsArray.push(checkCCExp(formObject[key]));
       }
     }
 

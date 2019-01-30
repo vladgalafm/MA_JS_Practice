@@ -1,19 +1,23 @@
 .input-container {
   position: relative;
+  display: flex;
+  align-items: flex-end;
 
   &__input {
     &--correct {
-      border: 2px solid #5cb85c !important;
+      border: 2px solid #5cb85c;
 
       &:focus {
+        border: 2px solid #5cb85c;
         box-shadow: 0 0 0 0.2rem rgba(92, 184, 92, 0.5);
       }
     }
 
     &--error {
-      border: 2px solid #d9534f !important;
+      border: 2px solid #d9534f;
 
       &:focus {
+        border: 2px solid #d9534f;
         box-shadow: 0 0 0 0.2rem rgba(217, 83, 79, 0.5);
       }
     }
@@ -42,5 +46,17 @@
 
   input:focus ~ .input-container__tooltip--visible {
     visibility: visible;
+  }
+}
+
+.pseudo-element {
+  &--error::before,
+  &--error::after {
+    border: 2px solid #d9534f;
+  }
+
+  &--correct::before,
+  &--corect::after {
+    border: 2px solid #5cb85c;
   }
 }
