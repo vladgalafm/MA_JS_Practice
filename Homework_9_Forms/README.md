@@ -43,7 +43,7 @@ Notice: you can fill these attributes with values you'd like, but if you want to
 6. If want to add some events after form validation process, when form turns valid or not valid, use _formIsValid_ and _formIsInvalid_ custom events.
 
 Example:
-```html
+```javascript
 // if form is valid, you will see alert message
 
 var form = document.querySelector('.js-form-validation');
