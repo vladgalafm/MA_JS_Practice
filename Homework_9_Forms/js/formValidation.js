@@ -28,6 +28,10 @@
         var formValid = new Event('formIsValid');
         form.dispatchEvent(formValid);
         inputsCollection.forEach(function(input) {
+          var inputName = input.dataset.name;
+          var tooltip = form.querySelector('[data-for-input="' + inputName + '"]');
+          tooltip.classList.remove('input-container__tooltip--visible');
+
           input.classList.remove('input-container__input--correct', 'input-container__input--error');
           if (input.getAttribute('type') === 'checkbox') {
             form.querySelector('[for="' + input.getAttribute('id') + '"]').classList.remove('pseudo-element--error', 'pseudo-element--correct');
@@ -45,7 +49,7 @@
           }
 
           var inputName = input.dataset.name;
-          var tooltip = document.body.querySelector('[data-for-input="' + inputName + '"]');
+          var tooltip = form.querySelector('[data-for-input="' + inputName + '"]');
 
           if (formDescription[inputName].errorMessage !== '') {
             if (!elementFocused) {
@@ -151,6 +155,13 @@
           continue;
         }
       }
+      if (input.getAttribute('type') === 'password' && inputName !== 'cc-csc') {
+        checkResult = checkPassword(formDescription[inputName]);
+        checkResultsArray.push(checkResult);
+        if (!checkResult) {
+          continue;
+        }
+      }
       if (input.getAttribute('type') === 'tel') {
         checkResult = checkTel(formDescription[inputName]);
         checkResultsArray.push(checkResult);
@@ -174,6 +185,22 @@
       }
       if (inputName === 'cc-exp') {
         checkResultsArray.push(checkCCExp(formDescription[inputName]));
+        if (!checkResult) {
+          continue;
+        }
+      }
+
+      var confirmInputIndex = inputName.lastIndexOf('-confirm');
+
+      if (confirmInputIndex !== -1) {
+        if (formDescription[inputName.substring(0, confirmInputIndex)].value !== formDescription[inputName].value) {
+          formDescription[inputName].errorMessage = 'You should enter the same ' + input.getAttribute('type');
+          checkResult = false;
+        } else {
+          formDescription[inputName].errorMessage = '';
+          checkResult = true;
+        }
+        checkResultsArray.push(checkResult);
       }
     }
 
@@ -244,6 +271,19 @@
     function checkEmail(field) {
       if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(field.value)) {
         field.errorMessage = 'Invalid email';
+        return false;
+      } else {
+        field.errorMessage = '';
+        return true;
+      }
+    }
+
+    function checkPassword(field) {
+      if (/[^0-9a-zA-Z]/.test(field.value)) {
+        field.errorMessage = 'Password should contain only numbers and Latin symbols';
+        return false;
+      } else if (!/[0-9]/.test(field.value) || !/[a-z]/.test(field.value) || !/[A-Z]/.test(field.value)) {
+        field.errorMessage = 'Password should contain numbers + Latin symbols, lower and uppercase';
         return false;
       } else {
         field.errorMessage = '';

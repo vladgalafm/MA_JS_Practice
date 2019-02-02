@@ -2,7 +2,7 @@
 
 [Library operation example](https://vladgalafm.github.io/MA_JS_Practice/Homework_9_Forms/)
 
-1. To use this form validation library, add `formValidation.js` to your page. Also, make sure you have added `tooltip.css`.
+1. To use this form validation library, copy `formValidation.js` and add it to your project, like in the example below. Also, make sure you've did the same with `tooltip.css`.
 
 ```html
 <link href="css/tooltip.css" rel="stylesheet">
@@ -30,6 +30,16 @@ Example:
 ```
 
 Notice: you can fill these attributes with values you'd like, but if you want to use all features of this library, please, follow instructions.
+
+4.1. If you have an email, password or telephone confirmation field, name it's `data-name` like in field which you want bind to your confirmation field + add `-confirm` postfix to it's `data-name`.
+
+Example:
+
+```html
+<input data-name="password" name="password" id="pass" type="password" required>
+  ...
+<input data-name="password-confirm" name="password-confirm" id="pass-conf" type="password" required>
+```
 
 5. Wrap your inputs into blocks and add `class="input-container"` to these blocks. If it's possible, you can wrap inputs' `<lable>` into containers too.
 
