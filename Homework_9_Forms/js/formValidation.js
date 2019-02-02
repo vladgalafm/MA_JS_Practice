@@ -120,6 +120,23 @@
           continue;
         }
       }
+
+      var confirmInputIndex = inputName.lastIndexOf('-confirm');
+
+      if (confirmInputIndex !== -1) {
+        if (formDescription[inputName.substring(0, confirmInputIndex)].value !== formDescription[inputName].value) {
+          formDescription[inputName].errorMessage = 'You should enter the same ' + input.getAttribute('type');
+          checkResult = false;
+        } else {
+          formDescription[inputName].errorMessage = '';
+          checkResult = true;
+        }
+        checkResultsArray.push(checkResult);
+        if (!checkResult) {
+          continue;
+        }
+      }
+
       if (input.hasAttribute('max')) {
         checkResult = checkMax(formDescription[inputName], input.getAttribute('max'));
         checkResultsArray.push(checkResult);
@@ -185,22 +202,6 @@
       }
       if (inputName === 'cc-exp') {
         checkResultsArray.push(checkCCExp(formDescription[inputName]));
-        if (!checkResult) {
-          continue;
-        }
-      }
-
-      var confirmInputIndex = inputName.lastIndexOf('-confirm');
-
-      if (confirmInputIndex !== -1) {
-        if (formDescription[inputName.substring(0, confirmInputIndex)].value !== formDescription[inputName].value) {
-          formDescription[inputName].errorMessage = 'You should enter the same ' + input.getAttribute('type');
-          checkResult = false;
-        } else {
-          formDescription[inputName].errorMessage = '';
-          checkResult = true;
-        }
-        checkResultsArray.push(checkResult);
       }
     }
 
