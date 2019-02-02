@@ -1,3 +1,5 @@
+var newId = generateUniqueId();
+
 function Admin(name, password) {
   this.id = newId();
   this.name = name;
@@ -16,13 +18,24 @@ var user = {
   showNews: function() {
     console.log('Show news');
   },
-  changeName: function(newName) {
-    this.name = newName;
+  changeUserData: function() {
+    console.log('Change your name/password');
   },
-  changePassword: function(newPassword) {
-    this.password = newPassword;
-  }
+  logOut: function() {
+    console.log('LogOut');
+  },
 };
+
+Admin.prototype = user;
+Visitor.prototype = user;
+
+Admin.prototype.editDeleteNews = function() {
+  console.log('Start editing news');
+};
+
+var vasya = new Admin('Vasya', '123');
+vasya.showNews();
+vasya.editDeleteNews();
 
 function generateUniqueId() {
   var userNumber = 0;
@@ -30,12 +43,3 @@ function generateUniqueId() {
     return ++userNumber + '';
   };
 }
-
-var newId = generateUniqueId();
-
-var q = new Admin('q', '123');
-var w = new Visitor('w', '123');
-var r = new Visitor('r', '123');
-console.dir(q);
-console.dir(w);
-console.dir(r);

@@ -2,9 +2,61 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Task 3</title>
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/tooltip.css" rel="stylesheet">
 </head>
 <body>
+<div class="forms">
+  <div class="forms__container">
+    <h2 class="forms__title">Log in</h2>
+    <form class="js-form-validation" action="#" method="post">
+      <div>
+        <label class="forms__label" for="login-user">Name</label>
+      </div>
+      <div class="forms__input-container input-container">
+        <input class="forms__input forms__input--user" data-name="login-user" name="login-user" id="login-user" autocomplete="username" required>
+      </div>
+      <div>
+        <label class="forms__label" for="login-pass">Password</label>
+      </div>
+      <div class="forms__input-container input-container">
+        <input class="forms__input forms__input--password" data-name="login-password" name="login-password" id="login-pass" type="password" required>
+      </div>
+      <button class="forms__button" type="submit">Log In</button>
+    </form>
+  </div>
+  <div class="forms__container">
+    <h2 class="forms__title">Create new user</h2>
+    <form class="js-form-validation" action="#" method="post">
+      <div>
+        <label class="forms__label" for="signup-user">Name</label>
+      </div>
+      <div class="forms__input-container input-container">
+        <input class="forms__input forms__input--user" data-name="signup-user" name="signup-user" id="signup-user" autocomplete="username" required>
+      </div>
+      <div>
+        <label class="forms__label" for="signup-pass">Password</label>
+      </div>
+      <div class="forms__input-container input-container">
+        <input class="forms__input forms__input--password" data-name="signup-password" name="signup-password" id="signup-pass" type="password" required>
+      </div>
+      <div>
+        <label class="forms__label" for="signup-pass-confirm">Password Confirmation</label>
+      </div>
+      <div class="forms__input-container input-container">
+        <input class="forms__input forms__input--password" data-name="signup-password-confirm" name="signup-password-confirm" id="signup-pass-confirm" type="password" required>
+      </div>
+      <div class="forms__checkbox-container input-container">
+        <input class="forms__checkbox" data-name="admin" id="admin" type="checkbox" name="admin">
+        <label class="forms__label" for="admin">Are you admin?</label>
+      </div>
+      <button class="forms__button" type="submit">Sign Up</button>
+    </form>
+  </div>
+</div>
 <script src="js/index.js"></script>
+<script src="js/formValidation.js"></script>
 </body>
 </html>

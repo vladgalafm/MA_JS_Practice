@@ -6,7 +6,7 @@ var plumber = require("gulp-plumber");
 var autoprefixer = require("gulp-autoprefixer");
 
 gulp.task('sass', function(){
-  gulp.src('Homework_9_Forms/scss/main.scss')
+  gulp.src('Homework_10_OOP/task3/scss/main.scss')
     .pipe(plumber())
     .pipe(sass({outputStyle: 'expanded'}))
     .pipe(rename('style.css'))
@@ -22,12 +22,12 @@ gulp.task('sass', function(){
         "Safari >= 6"],
       cascade: false
     }))
-    .pipe(gulp.dest('Homework_9_Forms/css'))
+    .pipe(gulp.dest('Homework_10_OOP/task3/css'))
     .pipe(browserSync.reload({stream: true}));
 });
 
 gulp.task('sass-tooltip', function(){
-  gulp.src('Homework_9_Forms/scss/tooltip.scss')
+  gulp.src('Homework_10_OOP/task3/scss/tooltip.scss')
     .pipe(plumber())
     .pipe(sass({outputStyle: 'expanded'}))
     .pipe(autoprefixer({
@@ -42,18 +42,18 @@ gulp.task('sass-tooltip', function(){
         "Safari >= 6"],
       cascade: false
     }))
-    .pipe(gulp.dest('Homework_9_Forms/css'))
+    .pipe(gulp.dest('Homework_10_OOP/task3/css'))
     .pipe(browserSync.reload({stream: true}));
 });
 
 gulp.task('watch', ['sass', 'browser', 'sass-tooltip'], function(){
-  gulp.watch('Homework_9_Forms/scss/**/*.scss', ['sass', 'sass-tooltip']);
+  gulp.watch('Homework_10_OOP/task3/scss/**/*.scss', ['sass', 'sass-tooltip']);
 });
 
 gulp.task('browser', function(){
   browserSync({
     server: {
-      baseDir: 'Homework_9_Forms'
+      baseDir: 'Homework_10_OOP/task3'
     },
     notify: false
   });

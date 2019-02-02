@@ -1,0 +1,25 @@
+@font-face {
+  font-family: "ProximaNova-Regular";
+  src: url("../fonts/ProximaNova-Regular.ttf") format("truetype"),
+  url("../fonts/ProximaNova-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "ProximaNova-Semibold";
+  src: url("../fonts/ProximaNova-Semibold.ttf") format("truetype"),
+  url("../fonts/ProximaNova-Semibold.woff") format("woff");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: 'ProximaNova-Regular', 'Helvetica', sans-serif;
+}
+
+body {
+  background-color: #f7f7f7;
+}
+
+@import "forms";
