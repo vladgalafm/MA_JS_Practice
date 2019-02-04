@@ -32,10 +32,10 @@
 
 .input-container__tooltip {
   position: absolute;
-  bottom: 40px;
+  bottom: 38px;
   right: 0;
   display: block;
-  max-width: 250px;
+  max-width: 180px;
   padding: 10px 10px 10px 35px;
   color: #333333;
   font-size: 12px;

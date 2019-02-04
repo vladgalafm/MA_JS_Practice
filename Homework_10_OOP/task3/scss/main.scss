@@ -22,4 +22,9 @@ body {
   background-color: #f7f7f7;
 }
 
+.js-display-none {
+  display: none;
+}
+
 @import "forms";
+@import "users-bar";

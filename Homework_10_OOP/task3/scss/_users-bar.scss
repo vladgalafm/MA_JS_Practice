@@ -1,0 +1,81 @@
+.users-bar {
+  margin: 0 auto;
+  max-width: 400px;
+  min-width: 300px;
+
+  &__container {
+    margin: 30px 0;
+    display: flex;
+    border: 2px solid #444444;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #000000;
+    background-color: #fdfdfd;
+  }
+
+  &__aside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-right: 1px solid #969696;
+  }
+
+  &__avatar {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #3e3e3e;
+    background: 0 0 no-repeat;
+    background-size: 100% 100%;
+
+    &--admin {
+      background-image: url("../img/admin.png");
+    }
+
+    &--visitor {
+      background-image: url("../img/visitor.png");
+    }
+  }
+
+  &__userrole {
+    padding-top: 5px;
+    font-size: 15px;
+    color: #3e3e3e;
+  }
+
+  &__username {
+    padding-top: 7px;
+    font-family: 'ProximaNova-Semibold', 'Helvetica', sans-serif;
+    font-size: 18px;
+    color: #d9534f;
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+  }
+
+  &__button {
+    margin-bottom: 15px;
+    padding: 5px 10px;
+    width: 100%;
+    font-size: 18px;
+    color: #ffffff;
+    text-align: center;
+    background-color: #969696;
+    border-radius: 5px;
+    font-family: 'ProximaNova-Semibold', 'Helvetica', sans-serif;
+    cursor: pointer;
+    transition: 0.2s;
+
+    &--logout {
+      background-color: #d9534f;
+    }
+
+    &:hover {
+      filter: brightness(1.1) saturate(1.2) drop-shadow(0 0 2px #000000);
+    }
+  }
+}

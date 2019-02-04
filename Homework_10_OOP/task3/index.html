@@ -8,20 +8,20 @@
   <link href="css/tooltip.css" rel="stylesheet">
 </head>
 <body>
-<div class="forms">
+<div class="forms js-forms-field">
   <div class="forms__container">
     <h2 class="forms__title">Log in</h2>
-    <form class="js-form-validation" action="#" method="post">
+    <form class="js-form-validation" data-role="login" action="#" method="post">
       <div>
         <label class="forms__label" for="login-user">Name</label>
       </div>
-      <div class="forms__input-container input-container">
+      <div class="input-container">
         <input class="forms__input forms__input--user" data-name="login-user" name="login-user" id="login-user" autocomplete="username" required>
       </div>
       <div>
         <label class="forms__label" for="login-pass">Password</label>
       </div>
-      <div class="forms__input-container input-container">
+      <div class="input-container">
         <input class="forms__input forms__input--password" data-name="login-password" name="login-password" id="login-pass" type="password" required>
       </div>
       <button class="forms__button" type="submit">Log In</button>
@@ -29,31 +29,47 @@
   </div>
   <div class="forms__container">
     <h2 class="forms__title">Create new user</h2>
-    <form class="js-form-validation" action="#" method="post">
+    <form class="js-form-validation" data-role="signup" action="#" method="post">
       <div>
         <label class="forms__label" for="signup-user">Name</label>
       </div>
-      <div class="forms__input-container input-container">
-        <input class="forms__input forms__input--user" data-name="signup-user" name="signup-user" id="signup-user" autocomplete="username" required>
+      <div class="input-container">
+        <input class="forms__input forms__input--user" data-name="signup-user" name="signup-user" id="signup-user" autocomplete="username" placeholder="Your name" required>
       </div>
       <div>
         <label class="forms__label" for="signup-pass">Password</label>
       </div>
-      <div class="forms__input-container input-container">
-        <input class="forms__input forms__input--password" data-name="signup-password" name="signup-password" id="signup-pass" type="password" required>
+      <div class="input-container">
+        <input class="forms__input forms__input--password" data-name="signup-password" name="signup-password" id="signup-pass" type="password" placeholder="At least 3 symbols" required>
       </div>
       <div>
         <label class="forms__label" for="signup-pass-confirm">Password Confirmation</label>
       </div>
-      <div class="forms__input-container input-container">
-        <input class="forms__input forms__input--password" data-name="signup-password-confirm" name="signup-password-confirm" id="signup-pass-confirm" type="password" required>
+      <div class="input-container">
+        <input class="forms__input forms__input--password" data-name="signup-password-confirm" name="signup-password-confirm" id="signup-pass-confirm" type="password" placeholder="Repeat your password" required>
       </div>
       <div class="forms__checkbox-container input-container">
         <input class="forms__checkbox" data-name="admin" id="admin" type="checkbox" name="admin">
-        <label class="forms__label" for="admin">Are you admin?</label>
+        <label class="forms__label" for="admin">Admin</label>
       </div>
       <button class="forms__button" type="submit">Sign Up</button>
     </form>
+  </div>
+</div>
+<div class="users-bar js-display-none js-users-cabinet">
+  <div class="users-bar__container">
+    <div class="users-bar__aside">
+      <div class="users-bar__avatar users-bar__avatar--visitor js-avatar"></div>
+      <span class="users-bar__userrole js-role">Visitor</span>
+      <span class="users-bar__username js-username">Username_User</span>
+    </div>
+    <div class="users-bar__actions js-user-actions">
+      <button class="users-bar__button" data-action="watch-news">Watch news</button>
+      <button class="users-bar__button" data-action="edit-news">Edit news</button>
+      <button class="users-bar__button" data-action="delete-news">Delete news</button>
+      <button class="users-bar__button" data-action="edit-profile">Edit profile</button>
+      <button class="users-bar__button users-bar__button--logout" data-action="logout">Log Out</button>
+    </div>
   </div>
 </div>
 <script src="js/index.js"></script>
