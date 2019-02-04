@@ -18,4 +18,4 @@
 
 [Homework 9. Forms Validation (link to directory)](https://github.com/vladgalafm/MA_JS_Practice/tree/master/Homework_9_Forms/)
 
-[Homework 10. OOP](https://vladgalafm.github.io/MA_JS_Practice/Homework_10_OOP/)
+[Homework 10. OOP](https://vladgalafm.github.io/MA_JS_Practice/Homework_10_OOP/task3/)
