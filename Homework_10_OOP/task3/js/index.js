@@ -151,6 +151,8 @@
     usersCabinet.classList.remove('js-display-none');
 
     localStorage.setItem('currentUser', JSON.stringify(currentLoggedUser));
+
+    inputsDefault();
   }
 
   function signUp(form) {
@@ -173,5 +175,15 @@
     if (loggedUser) {
       logIn(JSON.parse(loggedUser));
     }
+  }
+
+  function inputsDefault() {
+    formsField.querySelectorAll('input').forEach(function(input) {
+      if (input.getAttribute('type') === 'checkbox') {
+        input.checked = false;
+      } else {
+        input.value = '';
+      }
+    });
   }
 }());
