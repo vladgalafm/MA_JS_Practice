@@ -8,38 +8,38 @@
     };
   }
 
-  function Admin(name, id) {
+  function User(name, id) {
     this.id = id;
     this.name = name;
-    this.role = 'admin';
   }
 
-  function Visitor(name, id) {
-    this.id = id;
-    this.name = name;
-    this.role = 'visitor';
-  }
-
-  var user = {
-    watchNews: function() {
-      alert('Watching news');
-    },
-    changeUserData: function() {
-      alert('Changing your name/password');
-    },
-    logOut: function() {
-      editNewsButton.classList.remove('js-display-none');
-      deleteNewsButton.classList.remove('js-display-none');
-      formsField.classList.remove('js-display-none');
-      usersCabinet.classList.add('js-display-none');
-      currentLoggedUser = Object.create(null);
-
-      localStorage.clear();
-    },
+  User.prototype.logOut = function() {
+    editNewsButton.classList.remove('js-display-none');
+    deleteNewsButton.classList.remove('js-display-none');
+    formsField.classList.remove('js-display-none');
+    usersCabinet.classList.add('js-display-none');
+    currentLoggedUser = Object.create(null);
+    localStorage.clear();
+  };
+  User.prototype.watchNews = function() {
+    alert('Watching news');
+  };
+  User.prototype.changeUserData = function() {
+    alert('Changing your name/password');
   };
 
-  Admin.prototype = user;
-  Visitor.prototype = user;
+  function Visitor(name, id) {
+    this.role = 'visitor';
+    User.apply(this, arguments);
+  }
+
+  function Admin(name, id) {
+    this.role = 'admin';
+    User.apply(this, arguments);
+  }
+
+  Admin.prototype = Object.create(User.prototype);
+  Visitor.prototype = Object.create(User.prototype);
 
   Admin.prototype.editNews = function() {
     alert('Start editing news');
@@ -83,12 +83,11 @@
       usersName = usersCabinet.querySelector('.js-username'),
       editNewsButton = usersCabinet.querySelector('[data-action="edit-news"]'),
       deleteNewsButton = usersCabinet.querySelector('[data-action="delete-news"]'),
-      actionsBar = usersCabinet.querySelector('.js-user-actions'),
-      actionButtonsList = actionsBar.querySelectorAll('button');
+      actionButtonsList = usersCabinet.querySelectorAll('.users-bar__button');
 
   formsCollection.forEach(function(form) {
 
-    form.addEventListener('formIsValid', function(event) {
+    form.addEventListener('formIsValid', function() {
       if (form.dataset.role === 'login') {
         searchForUser(form);
       } else if (form.dataset.role === 'signup') {
@@ -135,11 +134,13 @@
     usersName.innerHTML = user.name;
     if (user.role === 'admin') {
       currentLoggedUser = new Admin(user.name, user.id);
+      console.log(currentLoggedUser);
       usersAvatar.classList.remove('users-bar__avatar--visitor');
       usersAvatar.classList.add('users-bar__avatar--admin');
       usersRole.innerHTML = 'Admin';
     } else {
       currentLoggedUser = new Visitor(user.name, user.id);
+      console.log(currentLoggedUser);
       usersAvatar.classList.remove('users-bar__avatar--admin');
       usersAvatar.classList.add('users-bar__avatar--visitor');
       usersRole.innerHTML = 'Visitor';

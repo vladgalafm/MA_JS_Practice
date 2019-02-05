@@ -12,42 +12,32 @@
   <div class="forms__container">
     <h2 class="forms__title">Log in</h2>
     <form class="js-form-validation" data-role="login" action="#" method="post">
-      <div>
-        <label class="forms__label" for="login-user">Name</label>
-      </div>
-      <div class="input-container">
+      <label class="forms__label input-container" for="login-user">
+        Name
         <input class="forms__input forms__input--user" data-name="login-user" name="login-user" id="login-user" autocomplete="username" required>
-      </div>
-      <div>
-        <label class="forms__label" for="login-pass">Password</label>
-      </div>
-      <div class="input-container">
+      </label>
+      <label class="forms__label input-container" for="login-pass">
+        Password
         <input class="forms__input forms__input--password" data-name="login-password" name="login-password" id="login-pass" type="password" required>
-      </div>
+      </label>
       <button class="forms__button" type="submit">Log In</button>
     </form>
   </div>
   <div class="forms__container">
     <h2 class="forms__title">Create new user</h2>
     <form class="js-form-validation" data-role="signup" action="#" method="post">
-      <div>
-        <label class="forms__label" for="signup-user">Name</label>
-      </div>
-      <div class="input-container">
+      <label class="forms__label" for="signup-user">
+        Name
         <input class="forms__input forms__input--user" data-name="signup-user" name="signup-user" id="signup-user" autocomplete="username" placeholder="Your name" required>
-      </div>
-      <div>
-        <label class="forms__label" for="signup-pass">Password</label>
-      </div>
-      <div class="input-container">
+      </label>
+      <label class="forms__label" for="signup-pass">
+        Password
         <input class="forms__input forms__input--password" data-name="signup-password" name="signup-password" id="signup-pass" type="password" placeholder="At least 3 symbols" required>
-      </div>
-      <div>
-        <label class="forms__label" for="signup-pass-confirm">Password Confirmation</label>
-      </div>
-      <div class="input-container">
+      </label>
+      <label class="forms__label" for="signup-pass-confirm">
+        Password Confirmation
         <input class="forms__input forms__input--password" data-name="signup-password-confirm" name="signup-password-confirm" id="signup-pass-confirm" type="password" placeholder="Repeat your password" required>
-      </div>
+      </label>
       <div class="forms__checkbox-container input-container">
         <input class="forms__checkbox" data-name="admin" id="admin" type="checkbox" name="admin">
         <label class="forms__label" for="admin">Admin</label>
@@ -68,7 +58,7 @@
       <button class="users-bar__button" data-action="edit-news">Edit news</button>
       <button class="users-bar__button" data-action="delete-news">Delete news</button>
       <button class="users-bar__button" data-action="edit-profile">Edit profile</button>
-      <button class="users-bar__button users-bar__button--logout" data-action="logout">Log Out</button>
+      <a class="users-bar__button users-bar__button--logout" data-action="logout" href="#">Log Out</a>
     </div>
   </div>
 </div>
